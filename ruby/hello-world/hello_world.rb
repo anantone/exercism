@@ -1,7 +1,5 @@
-class HelloWorld
-  
-  def self.hello(vocative = 'World')
-    'Hello, %s!' % vocative
-  end
-  
+HelloWorld = 'Hello, %s%c'
+public
+def hello(vocative = 'World', tone = '!')
+    self % [vocative, tone]
 end
