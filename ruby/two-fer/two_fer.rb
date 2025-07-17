@@ -6,7 +6,7 @@ Write your code for the 'Two Fer' exercise in this file. Make the tests in
 module TwoFer
  
   def self.two_fer(name = "you")
-    "One for #{name}, one for me."
+    "One for %s, one for me." % name
   end
     
 end
