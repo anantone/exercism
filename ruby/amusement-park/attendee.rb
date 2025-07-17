@@ -1,22 +1,22 @@
 class Attendee
-  def initialize(height)
+def initialize(height)
     @height = height
     @pass_id = nil
-  end
+end
 
-  def height
-    @height 
-  end
+def height
+    @height
+end
 
-  def pass_id
+def pass_id
     @pass_id
-  end
+end
 
-  def issue_pass!(pass_id)
-    @pass_id = 1
-  end
+def issue_pass!(pass_id)
+    @pass_id = pass_id
+end
 
-  def revoke_pass!
+def revoke_pass!
     @pass_id = false
-  end
+end
 end
