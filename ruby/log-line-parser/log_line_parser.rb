@@ -18,13 +18,15 @@ class LogLineParser
     self.message = log_content[:message].strip
     self.format = format
   end
-  
+
   public
-  
+
   attr_reader :message, :log_level
 
-  def reformat
+  def to_s
     format % {message:, log_level:}
   end
-  
+
+  alias_method :reformat, :to_s
+
 end
