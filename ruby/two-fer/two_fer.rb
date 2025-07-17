@@ -1,7 +1,6 @@
-module TwoFer
-
-  def self.two_fer(name = 'you')
-    'One for %s, one for me.' % name
-  end
-
+TwoFer = 'Two fer one'
+def TwoFer.two_fer(name = 'you')
+  'One for %s, one for me' % name
 end
+
+
