@@ -63,8 +63,8 @@ def average_even_is_average_odd(hand):
     :return: bool - are even and odd averages equal?
     """
 
-    even_vals = [h for i, h in enumerate(hand) if i % 2 == 0]
-    odd_vals = [h for i, h in enumerate(hand) if i % 2 == 1]
+    even_vals = [h for idx, h in enumerate(hand) if idx % 2 == 0]
+    odd_vals = [h for idx, h in enumerate(hand) if idx % 2 == 1]
     return sum(even_vals) / len(even_vals) == sum(odd_vals) / len(odd_vals)
 
 
