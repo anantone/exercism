@@ -31,6 +31,6 @@ class LogLineParser
     format % {message:, log_level:}
   end
 
-  alias_method :reformat, :to_s
+  alias :reformat :to_s
 
 end
