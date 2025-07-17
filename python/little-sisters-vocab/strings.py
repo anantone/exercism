@@ -58,5 +58,5 @@ def adjective_to_verb(sentence, index):
 
     lst = sentence.split()
     if not lst[index][-1].isalpha():
-         return lst[index][:-1] + 'en'
+        return lst[index][:-1] + 'en'
     return lst[index] + 'en'
