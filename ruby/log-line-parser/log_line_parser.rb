@@ -1,9 +1,10 @@
 class LogLineParser
 
-  def initialize(error)
-    log_level, message = error.split(":")
+  def initialize(log_line)
+    message = log_line[/:\s*(.+)\s*/, 1]
+    log_level = log_line[/\[(.+)\]/, 1]
     self.message = message.strip
-    self.log_level = log_level[1..-2].downcase
+    self.log_level = log_level.downcase
   end
 
   attr_accessor :message, :log_level
