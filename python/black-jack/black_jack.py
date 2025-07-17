@@ -38,7 +38,7 @@ def higher_card(card_one, card_two):
 
     if value_of_card(card_one) == value_of_card(card_two):
         return card_one, card_two
-    elif value_of_card(card_one) > value_of_card(card_two):
+    if value_of_card(card_one) > value_of_card(card_two):
         return card_one
     return card_two
 
