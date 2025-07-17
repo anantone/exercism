@@ -1,5 +1,5 @@
-HelloWorld = 'Hello, %s%c'
+HelloWorld = '%s, %s%c'
 public
-def hello(vocative = 'World', tone = '!')
-    self % [vocative, tone]
+def hello(greeting = 'Hello', vocative = 'World', tone = '!')
+    self % [greeting, vocative, tone]
 end
