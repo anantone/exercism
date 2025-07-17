@@ -1,9 +1,7 @@
 class HelloWorld
   
-  MESSAGE = "Hello, World!"
-  
-  def self.hello
-    MESSAGE
+  def self.hello(vocative = 'World')
+    'Hello, %s!' % vocative
   end
   
 end
