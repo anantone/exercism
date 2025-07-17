@@ -7,19 +7,9 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class DndCharacter
-
+  
   def self.modifier(constitution)
-    (constitution - 10) / 2
-  end
-
-  def initialize
-    strength = nil
-    dexterity = nil
-    constitution = nil
-    intelligence = nil
-    wisdom = nil
-    charisma = nil
-    hitpoints = nil
+    modifier = (constitution - 10) / 2
   end
 
   def strength
@@ -27,7 +17,7 @@ class DndCharacter
     b = dice_roller
     c = dice_roller
     d = dice_roller
-    a + b + c + d - [a, b, c, d].min
+    @strength ||= a + b + c + d - [a, b, c, d].min
   end
 
   def dexterity
@@ -35,7 +25,7 @@ class DndCharacter
     b = dice_roller
     c = dice_roller
     d = dice_roller
-    a + b + c + d - [a, b, c, d].min
+    @dexterity ||= a + b + c + d - [a, b, c, d].min
   end
 
   def constitution
@@ -43,7 +33,7 @@ class DndCharacter
     b = dice_roller
     c = dice_roller
     d = dice_roller
-    a + b + c + d - [a, b, c, d].min
+    @constitution ||= a + b + c + d - [a, b, c, d].min
   end
 
   def intelligence
@@ -51,7 +41,7 @@ class DndCharacter
     b = dice_roller
     c = dice_roller
     d = dice_roller
-    a + b + c + d - [a, b, c, d].min
+    @intelligence ||= a + b + c + d - [a, b, c, d].min
   end
 
   def wisdom
@@ -59,7 +49,7 @@ class DndCharacter
     b = dice_roller
     c = dice_roller
     d = dice_roller
-    a + b + c + d - [a, b, c, d].min
+    @wisdom ||= a + b + c + d - [a, b, c, d].min
   end
 
   def charisma
@@ -67,11 +57,11 @@ class DndCharacter
     b = dice_roller
     c = dice_roller
     d = dice_roller
-    a + b + c + d - [a, b, c, d].min
+    @charisma ||= a + b + c + d - [a, b, c, d].min
   end
 
   def hitpoints
-    10 + @modifier
+    hitpoints = 10 + self.class.modifier(constitution)
   end
 
   def dice_roller
