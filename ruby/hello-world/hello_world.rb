@@ -1,5 +1,9 @@
 class HelloWorld
+  
+  MESSAGE = "Hello, World!"
+  
   def self.hello
-    "Hello, World!"
+    MESSAGE
   end
+  
 end
