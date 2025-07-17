@@ -63,9 +63,18 @@ def average_even_is_average_odd(hand):
     :return: bool - are even and odd averages equal?
     """
 
-    even_vals = [h for idx, h in enumerate(hand) if idx % 2 == 0]
-    odd_vals = [h for idx, h in enumerate(hand) if idx % 2 == 1]
-    return sum(even_vals) / len(even_vals) == sum(odd_vals) / len(odd_vals)
+    even_vals = (h for idx, h in enumerate(hand) if idx % 2 == 0)
+    odd_vals = (h for idx, h in enumerate(hand) if idx % 2 == 1)
+
+    # Convert generators to lists once to calculate length safely
+    even_list, odd_list = list(even_vals), list(odd_vals)
+
+    # Guard against division by zero
+    if not even_list or not odd_list:
+        return False  # Or True, depending on how you want to handle empty slices
+
+    return sum(even_list) / len(even_list) == sum(odd_list) / len(odd_list)
+
 
 
 def maybe_double_last(hand):
