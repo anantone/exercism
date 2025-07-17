@@ -1,6 +1,8 @@
-TwoFer = 'Two fer one'
-def TwoFer.two_fer(name = 'you')
-  'One for %s, one for me.' % name
+TwoFer = 'One for %s, one for me.'
+public
+def two_fer(name = 'you')
+  self % name
 end
+
 
 
