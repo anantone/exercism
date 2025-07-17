@@ -5,60 +5,44 @@ class DndCharacter
   end
 
   def strength
-    a = dice_roller
-    b = dice_roller
-    c = dice_roller
-    d = dice_roller
-    @strength ||= a + b + c + d - [a, b, c, d].min
+    @strength ||= dice_rolls
   end
 
   def dexterity
-    a = dice_roller
-    b = dice_roller
-    c = dice_roller
-    d = dice_roller
-    @dexterity ||= a + b + c + d - [a, b, c, d].min
+    @dexterity ||= dice_rolls
   end
 
   def constitution
-    a = dice_roller
-    b = dice_roller
-    c = dice_roller
-    d = dice_roller
-    @constitution ||= a + b + c + d - [a, b, c, d].min
+    @constitution ||= dice_rolls
   end
 
   def intelligence
-    a = dice_roller
-    b = dice_roller
-    c = dice_roller
-    d = dice_roller
-    @intelligence ||= a + b + c + d - [a, b, c, d].min
+    @intelligence ||= dice_rolls
   end
 
   def wisdom
-    a = dice_roller
-    b = dice_roller
-    c = dice_roller
-    d = dice_roller
-    @wisdom ||= a + b + c + d - [a, b, c, d].min
+    @wisdom ||= dice_rolls
   end
 
   def charisma
-    a = dice_roller
-    b = dice_roller
-    c = dice_roller
-    d = dice_roller
-    @charisma ||= a + b + c + d - [a, b, c, d].min
+    @charisma ||= dice_rolls
   end
 
   def hitpoints
     hitpoints = 10 + self.class.modifier(constitution)
   end
+  
+  def dice_rolls
+    a = dice_roller
+    b = dice_roller
+    c = dice_roller
+    d = dice_roller
+    a + b + c + d - [a, b, c, d].min
+  end
 
   def dice_roller
     rand(1..6)
   end
-
+  
 end
 
