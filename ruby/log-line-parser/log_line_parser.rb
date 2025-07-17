@@ -1,9 +1,13 @@
 class LogLineParser
 
   RE = REGULAR_EXPRESSION = {
-    :log_and_level => %r{\[(?<log_level>.+)\]:\s*(?<message>.+)\s*}
+    :log_and_level => %r{
+    \[(?<log_level>.+)\]  # Capture log level
+    :\s*                  # Colon with optional white space
+    (?<message>.+)\s*     # Capture message
+    }x
   }
-  REPORT = '%<message>s (%<log_level>s)'
+  REPORT = %q{%<message>s (%<log_level>s)}
 
   private_constant :RE
 
