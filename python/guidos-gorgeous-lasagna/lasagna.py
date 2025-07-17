@@ -34,4 +34,3 @@ def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
     """Add the preparation time (as function of number of layers) and the elapsed bake time to return the total elapsed time so far.
     """
     return preparation_time_in_minutes(number_of_layers) + elapsed_bake_time
-
