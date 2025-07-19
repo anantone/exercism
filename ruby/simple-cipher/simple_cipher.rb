@@ -1,18 +1,20 @@
 class Cipher
 
-  def initialize(key)
-    if self.key == ''
-      key = (0...100).map { rand(26).chr }.join
+  def initialize
+    @key = key
+  end
+
+  def key
+    if @key == ''
+      @key = (0...100).map { rand(26).chr }.join
     end
-    self.key = key
+    @key
   end
 
   def encode(plaintext)
 
-
   end
 
-  def decode
+  def decode(ciphertext)
   end
-
 end
