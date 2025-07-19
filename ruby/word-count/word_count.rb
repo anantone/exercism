@@ -5,8 +5,7 @@ class Phrase
   end
 
   def word_count
-    unique_words = @phrase.split
-    Hash[unique_words.group_by {|x| x}.map {|k,v| [k,v.count]}]
+    Hash[@phrase.split.group_by {|x| x}.map {|k,v| [k,v.count]}]
   end
   
 end
