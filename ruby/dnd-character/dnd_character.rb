@@ -4,6 +4,7 @@
 
 class DndCharacter
 
+<<<<<<< HEAD
 
 
     #number of sides?
@@ -13,6 +14,9 @@ class DndCharacter
     #a simple roll function (one roll, returns a number)
 
     #a function to roll z dice x times, with the option to keep y max, min, mid
+=======
+  module Die
+>>>>>>> 369cfdebf0a32100c89298983a6ee1b713b0db46
     def self.roll(rolls:, top:)
       list_of_rolls = []
       (1..rolls).each do
