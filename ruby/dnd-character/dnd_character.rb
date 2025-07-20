@@ -18,7 +18,7 @@ class DndCharacter
     @wisdom         = Die.roll.sum
     @charisma       = Die.roll.sum
     @base_hitpoints = 10
-    @modifier       = (@constitution - 10) / 2
+    @modifier       = self.class.modifier(constitution)
     @hitpoints      = @base_hitpoints + @modifier
   end
 
