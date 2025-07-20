@@ -6,4 +6,3 @@ module TwoFer
   end
   
 end
-  
