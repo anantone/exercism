@@ -11,29 +11,30 @@ class DndCharacter
   end
 
   def initialize
-    @strength       = Die.roll.sum
-    @dexterity      = Die.roll.sum
-    @constitution   = Die.roll.sum
-    @intelligence   = Die.roll.sum
-    @wisdom         = Die.roll.sum
-    @charisma       = Die.roll.sum
-    @base_hitpoints = 10
-    @modifier       = (@constitution - 10) / 2
-    @hitpoints      = @base_hitpoints + @modifier
+    self.strength       = Die.roll.sum
+    self.dexterity      = Die.roll.sum
+    self.constitution   = Die.roll.sum
+    self.intelligence   = Die.roll.sum
+    self.wisdom         = Die.roll.sum
+    self.charisma       = Die.roll.sum
+    self.base_hitpoints = 10
+    self.modifier       = self.class.modifier(constitution)
+    self.hitpoints      = @base_hitpoints + @modifier
   end
 
   def self.modifier(constitution)
     (constitution - 10) / 2
   end
 
-  attr_reader :strength,
-              :dexterity,
-              :constitution,
-              :intelligence,
-              :wisdom,
-              :charisma,
-              :base_hitpoints,
-              :modifier,
-              :hitpoints
+
+  attr_accessor :strength,
+                :dexterity,
+                :constitution,
+                :intelligence,
+                :wisdom,
+                :charisma,
+                :base_hitpoints,
+                :modifier,
+                :hitpoints
 
 end
