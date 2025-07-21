@@ -1,5 +1,7 @@
 class DndCharacter
 
+  BASE_HITPOINTS = 10
+
   module Die
 
     def self.roll(rolls: 4, top: 3)
@@ -17,15 +19,12 @@ class DndCharacter
     self.intelligence   = Die.roll.sum
     self.wisdom         = Die.roll.sum
     self.charisma       = Die.roll.sum
-    self.base_hitpoints = 10
-    self.modifier       = self.class.modifier(constitution)
-    self.hitpoints      = @base_hitpoints + @modifier
+    self.hitpoints      = BASE_HITPOINTS + self.class.modifier(constitution)
   end
 
   def self.modifier(constitution)
     (constitution - 10) / 2
   end
-
 
   attr_accessor :strength,
                 :dexterity,
@@ -33,8 +32,6 @@ class DndCharacter
                 :intelligence,
                 :wisdom,
                 :charisma,
-                :base_hitpoints,
-                :modifier,
                 :hitpoints
 
 end

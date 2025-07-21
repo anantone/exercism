@@ -1,22 +1,18 @@
 class ResistorColorTrio
 
-  COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white']
+  COLORS = { 'black': 0, 'brown': 1, 'red': 2, 'orange': 3, 'yellow': 4, 'green': 5, 'blue': 6, 'violet': 7, 'grey': 8, 'white': 9 }
 
   def initialize(colors)
-    @color1, @color2, @color3 = colors.map { |color| self.code(color) }
-  end
-
-  def code(color)
-    COLORS.find_index(color).to_s
+    @band1, @band2, @band3 = colors.map { |color| COLORS[color.to_sym] }
   end
 
   def label
-    zeros = '0' * @color3.to_i
-    value = @color1 + @color2 + zeros
-    if value[-3, 3] == '000'
-      value.gsub!(/000\b/, ' kiloohms')
-    else
+    zeros = '0' * @band3
+    value = @band1.to_s + @band2.to_s + zeros
+    if value.to_i < 1000
       value << ' ohms'
+    else
+      value.gsub!(/000\b/, ' kiloohms')
     end
     'Resistor value: %s' % value
   end
