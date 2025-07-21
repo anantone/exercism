@@ -5,7 +5,7 @@ def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
     if ticket_type == 0:
         normal_queue.append(person_name)
         return normal_queue
-    elif ticket_type == 1:
+    if ticket_type == 1:
         express_queue.append(person_name)
         return express_queue
 
