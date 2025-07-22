@@ -39,7 +39,7 @@ class DndCharacter
 
   public
 
-  attr_accessor :strength,
+  attr_reader   :strength,
                 :dexterity,
                 :constitution,
                 :intelligence,
