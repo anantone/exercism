@@ -16,16 +16,6 @@ class DndCharacter
               :charisma,
               :hitpoints
 
-  public
-
-  attr_reader   :strength,
-                :dexterity,
-                :constitution,
-                :intelligence,
-                :wisdom,
-                :charisma,
-                :hitpoints
-
   def initialize
     self.strength,
     self.dexterity,
@@ -35,6 +25,16 @@ class DndCharacter
     self.charisma      = 6.times.map { Die.roll.sum }
     self.hitpoints     = BASE_HITPOINTS + self.class.modifier(constitution)
   end
+
+  public
+
+  attr_reader   :strength,
+                :dexterity,
+                :constitution,
+                :intelligence,
+                :wisdom,
+                :charisma,
+                :hitpoints
 
 end
 
