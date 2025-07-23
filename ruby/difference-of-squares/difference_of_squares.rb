@@ -1,5 +1,7 @@
 class Squares
 
+# Calculates the difference between the square of the sum and the sum of the squares of the first N natural numbers.
+
   private
 
   attr_writer :square_of_sum, :sum_of_squares, :difference
