@@ -26,7 +26,8 @@ class ResistorColorTrio
   attr_reader :band1, :band2, :band3
 
   def label
-    value = (band1.to_s + band2.to_s + 'e' + band3.to_s).to_f.to_i.to_s
+    value = ('%i%ie%i' % [band1, band2, band3]).to_f.to_i.to_s
+    
     if value.to_i < 1000
       value << ' ohms'
     else
