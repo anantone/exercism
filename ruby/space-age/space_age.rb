@@ -1,14 +1,14 @@
 class SpaceAge
 
-  PYES = PLANET_YEAR_PER_EARTH_SECOND = {
-                  mercury: 1/7600543r,
-                  earth: 1/31557600r,
-                  venus: 1/19414149r,
-                  mars: 1/59354032r,
-                  jupiter: 1/374355659r,
-                  saturn: 1/929292362r,
-                  uranus: 1/2651370019r,
-                  neptune: 1/5200418560r
+  PYES = PLANET_YEAR_IN_EARTH_SECONDS = {
+                 on_mercury:	 7600543r,
+                 on_earth:		 31557600r,
+                 on_venus:		 19414149r,
+                 on_mars:		  59354032r,
+                 on_jupiter:	 374355659r,
+                 on_saturn: 	 929292362r,
+                 on_uranus:  	2651370019r,
+                 on_neptune:	 5200418560r
 }
 
   private_constant :PYES
@@ -17,36 +17,12 @@ class SpaceAge
     @age_in_seconds = age_in_seconds
   end
 
-  def on_mercury
-    @age_in_seconds * PYES[:mercury]
+  def method_missing(methId)
+    planet_years(methId)
   end
 
-  def on_venus
-    @age_in_seconds * PYES[:venus]
-  end
-
-  def on_earth
-    @age_in_seconds * PYES[:earth]
-  end
-
-  def on_mars
-    @age_in_seconds * PYES[:mars]
-  end
-
-  def on_jupiter
-    @age_in_seconds * PYES[:jupiter]
-  end
-
-  def on_saturn
-    @age_in_seconds * PYES[:saturn]
-  end
-
-  def on_uranus
-    @age_in_seconds * PYES[:uranus]
-  end
-
-  def on_neptune
-    @age_in_seconds * PYES[:neptune]
+  def planet_years(planet)
+    @age_in_seconds / PYES[planet]
   end
 
 end
