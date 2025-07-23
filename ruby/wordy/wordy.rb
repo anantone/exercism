@@ -1,4 +1,37 @@
+module WordProblemExceptions
+
+  class QuestionError < ArgumentError
+
+    def initialize(message = "I don't understand the question")
+      super
+    end
+
+  end
+
+end
+
+
 class WordProblem
+  include WordProblemExceptions
+
+  RE = REGULAR_EXPRESSIONS = {
+    :nums_and_ops => %r{
+      (?<num1>-?\d+?)\s*                           # First number
+      (?<op1>(plus|minus|multiplied|divided))\s*   # First operator
+      (?<num2>-?\d+)\s*                            # Second number
+      (?<op2>(plus|minus|multiplied|divided))?\s*  # Second operator (optional)
+      (?<num3>-?\d+)?\s*                           # Third number (optional)
+    }x
+}
+
+  OPERATION = {
+    'plus'          => :+,
+    'minus'         => :-,
+    'multiplied by' => :*,
+    'divided by'    => :/
+}
+
+  private_constant :RE
 
   def initialize(question)
     self.question = question
@@ -7,14 +40,14 @@ class WordProblem
   attr_accessor :question
 
   def answer
-    expression = question.match(/(?<number1>-?\d+?) (?<operator1>[a-zA-Z|\s]*) (?<number2>-?\d+)(?<operator2>[a-zA-Z|\s]*)?(?<number3>-?\d+)?/)
+    expression = question.match(RE[:nums_and_ops])
     unless expression
-      raise ArgumentError.new
+      raise QuestionError.new
     end
-    if expression[:number3]
-      expression[:number1].to_i.send(operation(expression[:operator1]), expression[:number2].to_i).send(operation(expression[:operator2].strip), expression[:number3].to_i)
+    if expression[:num3]
+      expression[:num1].to_i.send(operation(expression[:op1]), expression[:num2].to_i).send(operation(expression[:op2]), expression[:num3].to_i)
     else
-      expression[:number1].to_i.send(operation(expression[:operator1]), expression[:number2].to_i)
+      expression[:num1].to_i.send(operation(expression[:op1]), expression[:num2].to_i)
     end
   end
 
@@ -24,11 +57,11 @@ class WordProblem
       :+
     when 'minus'
       :-
-    when 'multiplied by'
+    when 'multiplied'
       :*
-    when 'divided by'
+    when 'divided'
       :/
     end
   end
-  
+
 end
