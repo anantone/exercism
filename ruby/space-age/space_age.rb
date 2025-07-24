@@ -2,14 +2,14 @@
 class SpaceAge
 
   PYES = PLANET_YEAR_IN_EARTH_SECONDS = {
-                 on_mercury:  7600543r,
-                 on_earth:    31557600r,
-                 on_venus:    19414149r,
-                 on_mars:     59354032r,
-                 on_jupiter:  374355659r,
-                 on_saturn:   929292362r,
-                 on_uranus:   2651370019r,
-                 on_neptune:  5200418560r
+                 on_mercury:  7600543.8,
+                 on_venus:    19414149.1,
+                 on_earth:    31557600.0,
+                 on_mars:     59354032.7,
+                 on_jupiter:  374355659.1,
+                 on_saturn:   929292362.9,
+                 on_uranus:   2651370019.3,
+                 on_neptune:  5200418560.0
 }
 
   private_constant :PYES
