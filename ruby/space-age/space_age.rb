@@ -19,7 +19,7 @@ class SpaceAge
   attr_accessor :age_in_seconds
 
   def method_missing(method_name)
-    if method_name.start_with?('on_')
+    if PYES.keys.include?(method_name) 
       planet_years(method_name)
     else
       super(method_name)
@@ -27,7 +27,7 @@ class SpaceAge
   end
 
   def respond_to_missing?(method_name)
-    method_name.start_with?('on') || super
+    PYES.keys.include?(method_name) || super
   end
 
   def planet_years(planet)
@@ -39,3 +39,6 @@ class SpaceAge
   end
 
 end
+
+nasa = SpaceAge.new(2112912000)
+nasa.on_bananas
