@@ -40,5 +40,3 @@ class SpaceAge
 
 end
 
-nasa = SpaceAge.new(2112912000)
-nasa.on_bananas
