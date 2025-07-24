@@ -19,7 +19,7 @@ class SpaceAge
   attr_accessor :age_in_seconds
 
   def method_missing(method_name)
-    if PYES.keys.include?(method_name) 
+    if respond_to_missing?(method_name)
       planet_years(method_name)
     else
       super
@@ -27,7 +27,7 @@ class SpaceAge
   end
 
   def respond_to_missing?(method_name)
-    PYES.keys.include?(method_name) || super
+    PYES.keys.include?(method_name)
   end
 
   def planet_years(planet)
