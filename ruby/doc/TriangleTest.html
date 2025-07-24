@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>class TriangleTest - RDoc Documentation</title>
+
+  <meta name="keywords" content="ruby,class,TriangleTest">
+
+    <meta name="description" content="Documentation for the TriangleTest class">
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+  
+  <div id="parent-class-section" class="nav-section">
+  <h3>Ancestors</h3>
+  <ul><li>Minitest::Test</li></ul>
+</div>
+
+  
+  
+  
+
+
+  <div class="nav-section">
+    <h3>Instance Methods</h3>
+    <ul class="link-list" role="directory">
+      <li ><a href="#method-i-test_equilateral_triangle_all_sides_are_equal">test_equilateral_triangle_all_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_equilateral_triangle_all_zero_sides_is_not_a_triangle">test_equilateral_triangle_all_zero_sides_is_not_a_triangle</a></li>
+      <li ><a href="#method-i-test_equilateral_triangle_any_side_is_unequal">test_equilateral_triangle_any_side_is_unequal</a></li>
+      <li ><a href="#method-i-test_equilateral_triangle_no_sides_are_equal">test_equilateral_triangle_no_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_equilateral_triangle_sides_may_be_floats">test_equilateral_triangle_sides_may_be_floats</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_equilateral_triangles_are_also_isosceles">test_isosceles_triangle_equilateral_triangles_are_also_isosceles</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_first_and_last_sides_are_equal">test_isosceles_triangle_first_and_last_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_first_triangle_inequality_violation">test_isosceles_triangle_first_triangle_inequality_violation</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_first_two_sides_are_equal">test_isosceles_triangle_first_two_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_last_two_sides_are_equal">test_isosceles_triangle_last_two_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_no_sides_are_equal">test_isosceles_triangle_no_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_second_triangle_inequality_violation">test_isosceles_triangle_second_triangle_inequality_violation</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_sides_may_be_floats">test_isosceles_triangle_sides_may_be_floats</a></li>
+      <li ><a href="#method-i-test_isosceles_triangle_third_triangle_inequality_violation">test_isosceles_triangle_third_triangle_inequality_violation</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_all_sides_are_equal">test_scalene_triangle_all_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_first_and_second_sides_are_equal">test_scalene_triangle_first_and_second_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_first_and_third_sides_are_equal">test_scalene_triangle_first_and_third_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_may_not_violate_triangle_inequality">test_scalene_triangle_may_not_violate_triangle_inequality</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_no_sides_are_equal">test_scalene_triangle_no_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_second_and_third_sides_are_equal">test_scalene_triangle_second_and_third_sides_are_equal</a></li>
+      <li ><a href="#method-i-test_scalene_triangle_sides_may_be_floats">test_scalene_triangle_sides_may_be_floats</a></li>
+    </ul>
+  </div>
+
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-labelledby="class-TriangleTest">
+  
+  
+
+  <h1 id="class-TriangleTest" class="anchor-link class">
+    class TriangleTest
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-test_equilateral_triangle_all_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_equilateral_triangle_all_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_equilateral_triangle_all_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_equilateral_triangle_all_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_equilateral_triangle_all_sides_are_equal</span>
+  <span class="ruby-comment"># skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">equilateral?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [2, 2, 2] is equilateral.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_equilateral_triangle_all_zero_sides_is_not_a_triangle" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_equilateral_triangle_all_zero_sides_is_not_a_triangle" title="Link to this method">
+                <span class="method-name">test_equilateral_triangle_all_zero_sides_is_not_a_triangle</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_equilateral_triangle_all_zero_sides_is_not_a_triangle-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_equilateral_triangle_all_zero_sides_is_not_a_triangle</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">equilateral?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [0, 0, 0] is not equilateral.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_equilateral_triangle_any_side_is_unequal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_equilateral_triangle_any_side_is_unequal" title="Link to this method">
+                <span class="method-name">test_equilateral_triangle_any_side_is_unequal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_equilateral_triangle_any_side_is_unequal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_equilateral_triangle_any_side_is_unequal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">equilateral?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [2, 3, 2] is not equilateral.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_equilateral_triangle_no_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_equilateral_triangle_no_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_equilateral_triangle_no_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_equilateral_triangle_no_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_equilateral_triangle_no_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">5</span>, <span class="ruby-value">4</span>, <span class="ruby-value">6</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">equilateral?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [5, 4, 6] is not equilateral.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_equilateral_triangle_sides_may_be_floats" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_equilateral_triangle_sides_may_be_floats" title="Link to this method">
+                <span class="method-name">test_equilateral_triangle_sides_may_be_floats</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_equilateral_triangle_sides_may_be_floats-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_equilateral_triangle_sides_may_be_floats</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">0.5</span>, <span class="ruby-value">0.5</span>, <span class="ruby-value">0.5</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">equilateral?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [0.5, 0.5, 0.5] is equilateral.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_equilateral_triangles_are_also_isosceles" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_equilateral_triangles_are_also_isosceles" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_equilateral_triangles_are_also_isosceles</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_equilateral_triangles_are_also_isosceles-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_equilateral_triangles_are_also_isosceles</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">4</span>, <span class="ruby-value">4</span>, <span class="ruby-value">4</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [4, 4, 4] is isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_first_and_last_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_first_and_last_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_first_and_last_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_first_and_last_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_first_and_last_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">4</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [4, 3, 4] is isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_first_triangle_inequality_violation" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_first_triangle_inequality_violation" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_first_triangle_inequality_violation</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_first_triangle_inequality_violation-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_first_triangle_inequality_violation</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [1, 1, 3] is not isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_first_two_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_first_two_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_first_two_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_first_two_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_first_two_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">4</span>, <span class="ruby-value">4</span>, <span class="ruby-value">3</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [4, 4, 3] is isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_last_two_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_last_two_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_last_two_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_last_two_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_last_two_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">4</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [3, 4, 4] is isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_no_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_no_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_no_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_no_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_no_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [2, 3, 4] is not isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_second_triangle_inequality_violation" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_second_triangle_inequality_violation" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_second_triangle_inequality_violation</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_second_triangle_inequality_violation-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_second_triangle_inequality_violation</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [1, 3, 1] is not isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_sides_may_be_floats" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_sides_may_be_floats" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_sides_may_be_floats</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_sides_may_be_floats-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_sides_may_be_floats</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">0.5</span>, <span class="ruby-value">0.4</span>, <span class="ruby-value">0.5</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [0.5, 0.4, 0.5] is isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_isosceles_triangle_third_triangle_inequality_violation" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_isosceles_triangle_third_triangle_inequality_violation" title="Link to this method">
+                <span class="method-name">test_isosceles_triangle_third_triangle_inequality_violation</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_isosceles_triangle_third_triangle_inequality_violation-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_isosceles_triangle_third_triangle_inequality_violation</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">isosceles?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [3, 1, 1] is not isosceles.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_all_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_all_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_all_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_all_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_all_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">4</span>, <span class="ruby-value">4</span>, <span class="ruby-value">4</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [4, 4, 4] is not scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_first_and_second_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_first_and_second_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_first_and_second_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_first_and_second_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_first_and_second_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">4</span>, <span class="ruby-value">4</span>, <span class="ruby-value">3</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [4, 4, 3] is not scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_first_and_third_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_first_and_third_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_first_and_third_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_first_and_third_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_first_and_third_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">3</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [3, 4, 3] is not scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_may_not_violate_triangle_inequality" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_may_not_violate_triangle_inequality" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_may_not_violate_triangle_inequality</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_may_not_violate_triangle_inequality-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_may_not_violate_triangle_inequality</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">7</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [7, 3, 2] is not scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_no_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_no_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_no_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_no_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_no_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">5</span>, <span class="ruby-value">4</span>, <span class="ruby-value">6</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [5, 4, 6] is scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_second_and_third_sides_are_equal" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_second_and_third_sides_are_equal" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_second_and_third_sides_are_equal</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_second_and_third_sides_are_equal-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_second_and_third_sides_are_equal</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">4</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>])
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;false&#39;, triangle [4, 3, 3] is not scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      <div id="method-i-test_scalene_triangle_sides_may_be_floats" class="method-detail anchor-link ">
+        <div class="method-header">
+            <div class="method-heading">
+              <a href="#method-i-test_scalene_triangle_sides_may_be_floats" title="Link to this method">
+                <span class="method-name">test_scalene_triangle_sides_may_be_floats</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+        </div>
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+
+        <div class="method-description">
+          <div class="method-source-code" id="test_scalene_triangle_sides_may_be_floats-source">
+            <pre><span class="ruby-comment"># File triangle/triangle_test.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_scalene_triangle_sides_may_be_floats</span>
+  <span class="ruby-identifier">skip</span>
+  <span class="ruby-identifier">triangle</span> = <span class="ruby-constant">Triangle</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">0.5</span>, <span class="ruby-value">0.4</span>, <span class="ruby-value">0.6</span>])
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">triangle</span>.<span class="ruby-identifier">scalene?</span>, <span class="ruby-string">&quot;Expected &#39;true&#39;, triangle [0.5, 0.4, 0.6] is scalene.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+

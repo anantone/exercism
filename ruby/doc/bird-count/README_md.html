@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>README - RDoc Documentation</title>
+
+  <meta name="keywords" content="ruby,documentation,README">
+  <meta name="description" content="README: Bird Count Welcome to Bird Count on Exercism&#39;s Ruby Track. If you need help running the tests or submitting your code, check out `HELP.">
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Bird+Count">Bird Count</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Introduction">Introduction</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Arrays">Arrays</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Creating+arrays">Creating arrays</a>
+          <li>      <a href="#label-Element+Reference">Element Reference</a>
+          <li>      <a href="#label-Helper+Methods">Helper Methods</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>      <a href="#label-Enumeration">Enumeration</a>
+          <li>      <a href="#label-Instructions">Instructions</a>
+          <li>      <a href="#label-1.+Check+what+the+counts+were+last+week">1. Check what the counts were last week</a>
+          <li>      <a href="#label-2.+Check+how+many+birds+visited+yesterday">2. Check how many birds visited yesterday</a>
+          <li>      <a href="#label-3.+Calculate+the+total+number+of+visiting+birds">3. Calculate the total number of visiting birds</a>
+          <li>      <a href="#label-4.+Calculate+the+number+of+busy+days">4. Calculate the number of busy days</a>
+          <li>      <a href="#label-5.+Check+if+there+was+a+day+with+no+visiting+birds">5. Check if there was a day with no visiting birds</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Source">Source</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Created+by">Created by</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><details><summary>acronym</summary>
+    <ul class="link-list">
+      <li><a href="../acronym/HELP_md.html">HELP</a>
+      <li><a href="../acronym/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>amusement-park-improvements</summary>
+    <ul class="link-list">
+      <li><a href="../amusement-park-improvements/HELP_md.html">HELP</a>
+      <li><a href="../amusement-park-improvements/HINTS_md.html">HINTS</a>
+      <li><a href="../amusement-park-improvements/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>amusement-park</summary>
+    <ul class="link-list">
+      <li><a href="../amusement-park/HELP_md.html">HELP</a>
+      <li><a href="../amusement-park/HINTS_md.html">HINTS</a>
+      <li><a href="../amusement-park/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>assembly-line</summary>
+    <ul class="link-list">
+      <li><a href="../assembly-line/HELP_md.html">HELP</a>
+      <li><a href="../assembly-line/HINTS_md.html">HINTS</a>
+      <li><a href="../assembly-line/README_md.html">README</a>
+    </ul></details>
+    <li><details open><summary>bird-count</summary>
+    <ul class="link-list">
+      <li><a href="../bird-count/HELP_md.html">HELP</a>
+      <li><a href="../bird-count/HINTS_md.html">HINTS</a>
+      <li><a href="../bird-count/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>blackjack</summary>
+    <ul class="link-list">
+      <li><a href="../blackjack/HELP_md.html">HELP</a>
+      <li><a href="../blackjack/HINTS_md.html">HINTS</a>
+      <li><a href="../blackjack/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>chess-game</summary>
+    <ul class="link-list">
+      <li><a href="../chess-game/HELP_md.html">HELP</a>
+      <li><a href="../chess-game/HINTS_md.html">HINTS</a>
+      <li><a href="../chess-game/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>darts</summary>
+    <ul class="link-list">
+      <li><a href="../darts/HELP_md.html">HELP</a>
+      <li><a href="../darts/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>difference-of-squares</summary>
+    <ul class="link-list">
+      <li><a href="../difference-of-squares/HELP_md.html">HELP</a>
+      <li><a href="../difference-of-squares/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>dnd-character</summary>
+    <ul class="link-list">
+      <li><a href="../dnd-character/HELP_md.html">HELP</a>
+      <li><a href="../dnd-character/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>eliuds-eggs</summary>
+    <ul class="link-list">
+      <li><a href="../eliuds-eggs/HELP_md.html">HELP</a>
+      <li><a href="../eliuds-eggs/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>food-chain</summary>
+    <ul class="link-list">
+      <li><a href="../food-chain/HELP_md.html">HELP</a>
+      <li><a href="../food-chain/README_md.html">README</a>
+      <li><a href="../food-chain/song_txt.html">song</a>
+    </ul></details>
+    <li><details><summary>hamming</summary>
+    <ul class="link-list">
+      <li><a href="../hamming/HELP_md.html">HELP</a>
+      <li><a href="../hamming/README_md.html">README</a>
+      <li><a href="../hamming/RUNNING_TESTS_md.html">RUNNING_TESTS</a>
+    </ul></details>
+    <li><details><summary>hello-world</summary>
+    <ul class="link-list">
+      <li><a href="../hello-world/HELP_md.html">HELP</a>
+      <li><a href="../hello-world/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>high-scores</summary>
+    <ul class="link-list">
+      <li><a href="../high-scores/HELP_md.html">HELP</a>
+      <li><a href="../high-scores/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>isogram</summary>
+    <ul class="link-list">
+      <li><a href="../isogram/HELP_md.html">HELP</a>
+      <li><a href="../isogram/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>lasagna</summary>
+    <ul class="link-list">
+      <li><a href="../lasagna/HELP_md.html">HELP</a>
+      <li><a href="../lasagna/HINTS_md.html">HINTS</a>
+      <li><a href="../lasagna/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>leap</summary>
+    <ul class="link-list">
+      <li><a href="../leap/HELP_md.html">HELP</a>
+      <li><a href="../leap/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>log-line-parser</summary>
+    <ul class="link-list">
+      <li><a href="../log-line-parser/HELP_md.html">HELP</a>
+      <li><a href="../log-line-parser/HINTS_md.html">HINTS</a>
+      <li><a href="../log-line-parser/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>moviegoer</summary>
+    <ul class="link-list">
+      <li><a href="../moviegoer/HELP_md.html">HELP</a>
+      <li><a href="../moviegoer/HINTS_md.html">HINTS</a>
+      <li><a href="../moviegoer/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>pangram</summary>
+    <ul class="link-list">
+      <li><a href="../pangram/HELP_md.html">HELP</a>
+      <li><a href="../pangram/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>port-palermo</summary>
+    <ul class="link-list">
+      <li><a href="../port-palermo/HELP_md.html">HELP</a>
+      <li><a href="../port-palermo/HINTS_md.html">HINTS</a>
+      <li><a href="../port-palermo/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>raindrops</summary>
+    <ul class="link-list">
+      <li><a href="../raindrops/HELP_md.html">HELP</a>
+      <li><a href="../raindrops/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>resistor-color-duo</summary>
+    <ul class="link-list">
+      <li><a href="../resistor-color-duo/HELP_md.html">HELP</a>
+      <li><a href="../resistor-color-duo/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>resistor-color-trio</summary>
+    <ul class="link-list">
+      <li><a href="../resistor-color-trio/HELP_md.html">HELP</a>
+      <li><a href="../resistor-color-trio/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>resistor-color</summary>
+    <ul class="link-list">
+      <li><a href="../resistor-color/HELP_md.html">HELP</a>
+      <li><a href="../resistor-color/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>reverse-string</summary>
+    <ul class="link-list">
+      <li><a href="../reverse-string/HELP_md.html">HELP</a>
+      <li><a href="../reverse-string/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>rna-transcription</summary>
+    <ul class="link-list">
+      <li><a href="../rna-transcription/HELP_md.html">HELP</a>
+      <li><a href="../rna-transcription/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>savings-account</summary>
+    <ul class="link-list">
+      <li><a href="../savings-account/HELP_md.html">HELP</a>
+      <li><a href="../savings-account/HINTS_md.html">HINTS</a>
+      <li><a href="../savings-account/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>scrabble-score</summary>
+    <ul class="link-list">
+      <li><a href="../scrabble-score/HELP_md.html">HELP</a>
+      <li><a href="../scrabble-score/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>series</summary>
+    <ul class="link-list">
+      <li><a href="../series/HELP_md.html">HELP</a>
+      <li><a href="../series/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>sieve</summary>
+    <ul class="link-list">
+      <li><a href="../sieve/HELP_md.html">HELP</a>
+      <li><a href="../sieve/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>simple-calculator</summary>
+    <ul class="link-list">
+      <li><a href="../simple-calculator/HELP_md.html">HELP</a>
+      <li><a href="../simple-calculator/HINTS_md.html">HINTS</a>
+      <li><a href="../simple-calculator/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>simple-cipher</summary>
+    <ul class="link-list">
+      <li><a href="../simple-cipher/HELP_md.html">HELP</a>
+      <li><a href="../simple-cipher/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>space-age</summary>
+    <ul class="link-list">
+      <li><a href="../space-age/HELP_md.html">HELP</a>
+      <li><a href="../space-age/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>sum-of-multiples</summary>
+    <ul class="link-list">
+      <li><a href="../sum-of-multiples/HELP_md.html">HELP</a>
+      <li><a href="../sum-of-multiples/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>triangle</summary>
+    <ul class="link-list">
+      <li><a href="../triangle/HELP_md.html">HELP</a>
+      <li><a href="../triangle/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>two-bucket</summary>
+    <ul class="link-list">
+      <li><a href="../two-bucket/HELP_md.html">HELP</a>
+      <li><a href="../two-bucket/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>two-fer</summary>
+    <ul class="link-list">
+      <li><a href="../two-fer/HELP_md.html">HELP</a>
+      <li><a href="../two-fer/README_md.html">README</a>
+      <li><a href="../two-fer/q.html">q</a>
+    </ul></details>
+    <li><details><summary>word-count</summary>
+    <ul class="link-list">
+      <li><a href="../word-count/HELP_md.html">HELP</a>
+      <li><a href="../word-count/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>wordy</summary>
+    <ul class="link-list">
+      <li><a href="../wordy/HELP_md.html">HELP</a>
+      <li><a href="../wordy/README_md.html">README</a>
+    </ul></details>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page bird-count/README.md">
+
+<h1 id="label-Bird+Count">Bird Count<span><a href="#label-Bird+Count">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Welcome to Bird Count on Exercism’s Ruby Track. If you need help running the tests or submitting your code, check out <code>HELP.md</code>. If you get stuck on the exercise, check out <code>HINTS.md</code>, but try and solve it without using those first :)</p>
+
+<h2 id="label-Introduction">Introduction<span><a href="#label-Introduction">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h2 id="label-Arrays">Arrays<span><a href="#label-Arrays">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>In Ruby, <strong>arrays</strong> are ordered, integer-indexed collections of any object. Array indexing starts at <code>0</code>. A negative index is assumed to be relative to the end of the array — e.g.. an index of <code>-1</code> indicates the last element of the array, <code>-2</code> is the next to last element in the array, and so on.</p>
+
+<h3 id="label-Creating+arrays">Creating arrays<span><a href="#label-Creating+arrays">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Arrays are normally created using the <code>[]</code> notation. They can create any different type of object.</p>
+
+<pre class="ruby"><span class="ruby-identifier">array</span> = [<span class="ruby-value">1</span>, <span class="ruby-string">&quot;two&quot;</span>, <span class="ruby-value">3.0</span>]
+</pre>
+
+<h3 id="label-Element+Reference">Element Reference<span><a href="#label-Element+Reference">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Elements in an array can be retrieved by their indexes using the [] method. This returns the element at index, or returns a subarray starting at the start index and continuing for a specified length. Negative indices count backward from the end of the array.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [ <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>, <span class="ruby-string">&quot;d&quot;</span>, <span class="ruby-string">&quot;e&quot;</span> ]
+
+<span class="ruby-identifier">a</span>[<span class="ruby-value">2</span>]       <span class="ruby-comment">#=&gt; &quot;c&quot;</span>
+<span class="ruby-identifier">a</span>[<span class="ruby-value">6</span>]       <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">a</span>[<span class="ruby-value">1</span>, <span class="ruby-value">3</span>]    <span class="ruby-comment">#=&gt; [ &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ]</span>
+
+<span class="ruby-identifier">a</span>[<span class="ruby-value">-1</span>]      <span class="ruby-comment">#=&gt; &quot;e&quot;</span>
+<span class="ruby-identifier">a</span>[<span class="ruby-value">-2</span>]      <span class="ruby-comment">#=&gt; &quot;d&quot;</span>
+<span class="ruby-identifier">a</span>[<span class="ruby-value">-3</span>, <span class="ruby-value">2</span>]   <span class="ruby-comment">#=&gt; [&quot;c&quot;, &quot;d&quot;]</span>
+</pre>
+
+<h3 id="label-Helper+Methods">Helper Methods<span><a href="#label-Helper+Methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There are lots of useful helper methods on arrays. Here are some of the more common:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fibonacci</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>, <span class="ruby-value">8</span>, <span class="ruby-value">13</span>]
+
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">size</span>      <span class="ruby-comment">#=&gt; 8</span>
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">sum</span>       <span class="ruby-comment">#=&gt; 33</span>
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">reverse</span>   <span class="ruby-comment">#=&gt; [13, 8, 5, 3, 2, 1, 1, 0]</span>
+</pre>
+
+<h2 id="label-Enumeration">Enumeration<span><a href="#label-Enumeration">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Rather than using loops to iterate through collections, in Ruby we use enumeration.</p>
+
+<p>Enumeration is the act of stepping through a collection (in this case an array) and performing some action on each object. Enumeration is a key concept in Ruby and is used for things like sorting, grouping, mapping, reducing, and much more.</p>
+
+<p>An enumeration to print each word in an array would look like this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">words</span> = [<span class="ruby-string">&quot;the&quot;</span>, <span class="ruby-string">&quot;cat&quot;</span>, <span class="ruby-string">&quot;sat&quot;</span>]
+<span class="ruby-identifier">words</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">word</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Output:</span>
+<span class="ruby-comment"># the</span>
+<span class="ruby-comment"># cat</span>
+<span class="ruby-comment"># sat</span>
+</pre>
+
+<p>In this example, we have called the <code>.each</code> method on our array and passed in a <em>block</em> that takes one parameter (<code>word</code>) and prints it out.</p>
+
+<p>We’ll look at <em>blocks</em> in much more depth later in the Track, but for now think of them as anonymous functions that can take zero or more arguments. They can be defined using the <code>do...end</code> syntax (above), or the <code>{}</code> syntax (below).</p>
+
+<p>Here are some other examples of array methods that use blocks:</p>
+
+<pre class="ruby"><span class="ruby-identifier">fibonacci</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>, <span class="ruby-value">8</span>, <span class="ruby-value">13</span>]
+
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">count</span>  { <span class="ruby-operator">|</span><span class="ruby-identifier">number</span><span class="ruby-operator">|</span> <span class="ruby-identifier">number</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> }   <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">any?</span>   { <span class="ruby-operator">|</span><span class="ruby-identifier">number</span><span class="ruby-operator">|</span> <span class="ruby-identifier">number</span> <span class="ruby-operator">==</span> <span class="ruby-value">6</span> }   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">number</span><span class="ruby-operator">|</span> <span class="ruby-identifier">number</span>.<span class="ruby-identifier">odd?</span> }   <span class="ruby-comment">#=&gt; [1, 1, 3, 5, 13]</span>
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">all?</span>   { <span class="ruby-operator">|</span><span class="ruby-identifier">number</span><span class="ruby-operator">|</span> <span class="ruby-identifier">number</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">20</span> }   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">fibonacci</span>.<span class="ruby-identifier">map</span>    { <span class="ruby-operator">|</span><span class="ruby-identifier">number</span><span class="ruby-operator">|</span> <span class="ruby-identifier">number</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>  }   <span class="ruby-comment">#=&gt; [0, 2, 2, 4, 6, 10, 16, 26]</span>
+</pre>
+
+<h2 id="label-Instructions">Instructions<span><a href="#label-Instructions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You’re an avid bird watcher that keeps track of how many birds have visited your garden in the last seven days.</p>
+
+<p>You have five tasks, all dealing with the numbers of birds that visited your garden.</p>
+
+<h2 id="label-1.+Check+what+the+counts+were+last+week">1. Check what the counts were last week<span><a href="#label-1.+Check+what+the+counts+were+last+week">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>For comparison purposes, you always keep a copy of last week’s counts nearby, which were: 0, 2, 5, 3, 7, 8 and 4. Implement the <a href="../BirdCount.html#method-c-last_week"><code>BirdCount.last_week</code></a> method that returns last week’s counts:</p>
+
+<pre class="ruby"><span class="ruby-constant">BirdCount</span>.<span class="ruby-identifier">last_week</span>
+<span class="ruby-comment"># =&gt; [0, 2, 5, 3, 7, 8, 4]</span>
+</pre>
+
+<h2 id="label-2.+Check+how+many+birds+visited+yesterday">2. Check how many birds visited yesterday<span><a href="#label-2.+Check+how+many+birds+visited+yesterday">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Implement the <a href="../BirdCount.html#method-i-yesterday"><code>BirdCount#yesterday</code></a> method to return how many birds visited your garden yesterday. The bird counts are ordered by day, with the first element being the count of the oldest day, and the last element being today’s count.</p>
+
+<pre class="ruby"><span class="ruby-identifier">birds_per_day</span> = [<span class="ruby-value">2</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">7</span>, <span class="ruby-value">4</span>, <span class="ruby-value">1</span>]
+<span class="ruby-identifier">bird_count</span> = <span class="ruby-constant">BirdCount</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">birds_per_day</span>)
+<span class="ruby-identifier">bird_count</span>.<span class="ruby-identifier">yesterday</span>
+<span class="ruby-comment"># =&gt; 4</span>
+</pre>
+
+<h2 id="label-3.+Calculate+the+total+number+of+visiting+birds">3. Calculate the total number of visiting birds<span><a href="#label-3.+Calculate+the+total+number+of+visiting+birds">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Implement the <a href="../BirdCount.html#method-i-total"><code>BirdCount#total</code></a> method to return the total number of birds that have visited your garden:</p>
+
+<pre class="ruby"><span class="ruby-identifier">birds_per_day</span> = [<span class="ruby-value">2</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">7</span>, <span class="ruby-value">4</span>, <span class="ruby-value">1</span>]
+<span class="ruby-identifier">bird_count</span> = <span class="ruby-constant">BirdCount</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">birds_per_day</span>)
+<span class="ruby-identifier">bird_count</span>.<span class="ruby-identifier">total</span>
+<span class="ruby-comment"># =&gt; 19</span>
+</pre>
+
+<h2 id="label-4.+Calculate+the+number+of+busy+days">4. Calculate the number of busy days<span><a href="#label-4.+Calculate+the+number+of+busy+days">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Some days are busier than others. A busy day is one where five or more birds have visited your garden. Implement the <a href="../BirdCount.html#method-i-busy_days"><code>BirdCount#busy_days</code></a> method to return the number of busy days:</p>
+
+<pre class="ruby"><span class="ruby-identifier">birds_per_day</span> = [<span class="ruby-value">2</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">7</span>, <span class="ruby-value">4</span>, <span class="ruby-value">1</span>]
+<span class="ruby-identifier">bird_count</span> = <span class="ruby-constant">BirdCount</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">birds_per_day</span>)
+<span class="ruby-identifier">bird_count</span>.<span class="ruby-identifier">busy_days</span>
+<span class="ruby-comment"># =&gt; 2</span>
+</pre>
+
+<h2 id="label-5.+Check+if+there+was+a+day+with+no+visiting+birds">5. Check if there was a day with no visiting birds<span><a href="#label-5.+Check+if+there+was+a+day+with+no+visiting+birds">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Implement the <a href="../BirdCount.html#method-i-day_without_birds-3F"><code>BirdCount#day_without_birds?</code></a> method that returns <code>true</code> if there was a day at which zero birds visited the garden; otherwise, return <code>false</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">birds_per_day</span> = [<span class="ruby-value">2</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">7</span>, <span class="ruby-value">4</span>, <span class="ruby-value">1</span>]
+<span class="ruby-identifier">bird_count</span> = <span class="ruby-constant">BirdCount</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">birds_per_day</span>)
+<span class="ruby-identifier">bird_count</span>.<span class="ruby-identifier">day_without_birds?</span>
+<span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<h2 id="label-Source">Source<span><a href="#label-Source">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Created+by">Created by<span><a href="#label-Created+by">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>@pvcarrera</p>
+</li></ul>
+
+</main>
+

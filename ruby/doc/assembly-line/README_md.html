@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>README - RDoc Documentation</title>
+
+  <meta name="keywords" content="ruby,documentation,README">
+  <meta name="description" content="README: Assembly Line Welcome to Assembly Line on Exercism&#39;s Ruby Track. If you need help running the tests or submitting your code, check out `HELP.">
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Assembly+Line">Assembly Line</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Introduction">Introduction</a>
+          <li>      <a href="#label-Numbers">Numbers</a>
+          <li>      <a href="#label-Conditionals">Conditionals</a>
+          <li>      <a href="#label-Comparison+operators">Comparison operators</a>
+          <li>      <a href="#label-If+statement">If statement</a>
+          <li>      <a href="#label-Unless+statement">Unless statement</a>
+          <li>      <a href="#label-Else+statement">Else statement</a>
+          <li>      <a href="#label-22Cascading-if-22+statements">“Cascading-if” statements</a>
+          <li>      <a href="#label-Instructions">Instructions</a>
+          <li>      <a href="#label-1.+Calculate+the+production+rate+per+hour">1. Calculate the production rate per hour</a>
+          <li>      <a href="#label-2.+Calculate+the+number+of+working+items+produced+per+minute">2. Calculate the number of working items produced per minute</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Source">Source</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Created+by">Created by</a>
+          <li>      <a href="#label-Contributed+to+by">Contributed to by</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><details><summary>acronym</summary>
+    <ul class="link-list">
+      <li><a href="../acronym/HELP_md.html">HELP</a>
+      <li><a href="../acronym/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>amusement-park-improvements</summary>
+    <ul class="link-list">
+      <li><a href="../amusement-park-improvements/HELP_md.html">HELP</a>
+      <li><a href="../amusement-park-improvements/HINTS_md.html">HINTS</a>
+      <li><a href="../amusement-park-improvements/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>amusement-park</summary>
+    <ul class="link-list">
+      <li><a href="../amusement-park/HELP_md.html">HELP</a>
+      <li><a href="../amusement-park/HINTS_md.html">HINTS</a>
+      <li><a href="../amusement-park/README_md.html">README</a>
+    </ul></details>
+    <li><details open><summary>assembly-line</summary>
+    <ul class="link-list">
+      <li><a href="../assembly-line/HELP_md.html">HELP</a>
+      <li><a href="../assembly-line/HINTS_md.html">HINTS</a>
+      <li><a href="../assembly-line/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>bird-count</summary>
+    <ul class="link-list">
+      <li><a href="../bird-count/HELP_md.html">HELP</a>
+      <li><a href="../bird-count/HINTS_md.html">HINTS</a>
+      <li><a href="../bird-count/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>blackjack</summary>
+    <ul class="link-list">
+      <li><a href="../blackjack/HELP_md.html">HELP</a>
+      <li><a href="../blackjack/HINTS_md.html">HINTS</a>
+      <li><a href="../blackjack/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>chess-game</summary>
+    <ul class="link-list">
+      <li><a href="../chess-game/HELP_md.html">HELP</a>
+      <li><a href="../chess-game/HINTS_md.html">HINTS</a>
+      <li><a href="../chess-game/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>darts</summary>
+    <ul class="link-list">
+      <li><a href="../darts/HELP_md.html">HELP</a>
+      <li><a href="../darts/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>difference-of-squares</summary>
+    <ul class="link-list">
+      <li><a href="../difference-of-squares/HELP_md.html">HELP</a>
+      <li><a href="../difference-of-squares/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>dnd-character</summary>
+    <ul class="link-list">
+      <li><a href="../dnd-character/HELP_md.html">HELP</a>
+      <li><a href="../dnd-character/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>eliuds-eggs</summary>
+    <ul class="link-list">
+      <li><a href="../eliuds-eggs/HELP_md.html">HELP</a>
+      <li><a href="../eliuds-eggs/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>food-chain</summary>
+    <ul class="link-list">
+      <li><a href="../food-chain/HELP_md.html">HELP</a>
+      <li><a href="../food-chain/README_md.html">README</a>
+      <li><a href="../food-chain/song_txt.html">song</a>
+    </ul></details>
+    <li><details><summary>hamming</summary>
+    <ul class="link-list">
+      <li><a href="../hamming/HELP_md.html">HELP</a>
+      <li><a href="../hamming/README_md.html">README</a>
+      <li><a href="../hamming/RUNNING_TESTS_md.html">RUNNING_TESTS</a>
+    </ul></details>
+    <li><details><summary>hello-world</summary>
+    <ul class="link-list">
+      <li><a href="../hello-world/HELP_md.html">HELP</a>
+      <li><a href="../hello-world/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>high-scores</summary>
+    <ul class="link-list">
+      <li><a href="../high-scores/HELP_md.html">HELP</a>
+      <li><a href="../high-scores/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>isogram</summary>
+    <ul class="link-list">
+      <li><a href="../isogram/HELP_md.html">HELP</a>
+      <li><a href="../isogram/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>lasagna</summary>
+    <ul class="link-list">
+      <li><a href="../lasagna/HELP_md.html">HELP</a>
+      <li><a href="../lasagna/HINTS_md.html">HINTS</a>
+      <li><a href="../lasagna/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>leap</summary>
+    <ul class="link-list">
+      <li><a href="../leap/HELP_md.html">HELP</a>
+      <li><a href="../leap/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>log-line-parser</summary>
+    <ul class="link-list">
+      <li><a href="../log-line-parser/HELP_md.html">HELP</a>
+      <li><a href="../log-line-parser/HINTS_md.html">HINTS</a>
+      <li><a href="../log-line-parser/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>moviegoer</summary>
+    <ul class="link-list">
+      <li><a href="../moviegoer/HELP_md.html">HELP</a>
+      <li><a href="../moviegoer/HINTS_md.html">HINTS</a>
+      <li><a href="../moviegoer/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>pangram</summary>
+    <ul class="link-list">
+      <li><a href="../pangram/HELP_md.html">HELP</a>
+      <li><a href="../pangram/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>port-palermo</summary>
+    <ul class="link-list">
+      <li><a href="../port-palermo/HELP_md.html">HELP</a>
+      <li><a href="../port-palermo/HINTS_md.html">HINTS</a>
+      <li><a href="../port-palermo/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>raindrops</summary>
+    <ul class="link-list">
+      <li><a href="../raindrops/HELP_md.html">HELP</a>
+      <li><a href="../raindrops/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>resistor-color-duo</summary>
+    <ul class="link-list">
+      <li><a href="../resistor-color-duo/HELP_md.html">HELP</a>
+      <li><a href="../resistor-color-duo/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>resistor-color-trio</summary>
+    <ul class="link-list">
+      <li><a href="../resistor-color-trio/HELP_md.html">HELP</a>
+      <li><a href="../resistor-color-trio/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>resistor-color</summary>
+    <ul class="link-list">
+      <li><a href="../resistor-color/HELP_md.html">HELP</a>
+      <li><a href="../resistor-color/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>reverse-string</summary>
+    <ul class="link-list">
+      <li><a href="../reverse-string/HELP_md.html">HELP</a>
+      <li><a href="../reverse-string/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>rna-transcription</summary>
+    <ul class="link-list">
+      <li><a href="../rna-transcription/HELP_md.html">HELP</a>
+      <li><a href="../rna-transcription/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>savings-account</summary>
+    <ul class="link-list">
+      <li><a href="../savings-account/HELP_md.html">HELP</a>
+      <li><a href="../savings-account/HINTS_md.html">HINTS</a>
+      <li><a href="../savings-account/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>scrabble-score</summary>
+    <ul class="link-list">
+      <li><a href="../scrabble-score/HELP_md.html">HELP</a>
+      <li><a href="../scrabble-score/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>series</summary>
+    <ul class="link-list">
+      <li><a href="../series/HELP_md.html">HELP</a>
+      <li><a href="../series/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>sieve</summary>
+    <ul class="link-list">
+      <li><a href="../sieve/HELP_md.html">HELP</a>
+      <li><a href="../sieve/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>simple-calculator</summary>
+    <ul class="link-list">
+      <li><a href="../simple-calculator/HELP_md.html">HELP</a>
+      <li><a href="../simple-calculator/HINTS_md.html">HINTS</a>
+      <li><a href="../simple-calculator/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>simple-cipher</summary>
+    <ul class="link-list">
+      <li><a href="../simple-cipher/HELP_md.html">HELP</a>
+      <li><a href="../simple-cipher/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>space-age</summary>
+    <ul class="link-list">
+      <li><a href="../space-age/HELP_md.html">HELP</a>
+      <li><a href="../space-age/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>sum-of-multiples</summary>
+    <ul class="link-list">
+      <li><a href="../sum-of-multiples/HELP_md.html">HELP</a>
+      <li><a href="../sum-of-multiples/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>triangle</summary>
+    <ul class="link-list">
+      <li><a href="../triangle/HELP_md.html">HELP</a>
+      <li><a href="../triangle/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>two-bucket</summary>
+    <ul class="link-list">
+      <li><a href="../two-bucket/HELP_md.html">HELP</a>
+      <li><a href="../two-bucket/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>two-fer</summary>
+    <ul class="link-list">
+      <li><a href="../two-fer/HELP_md.html">HELP</a>
+      <li><a href="../two-fer/README_md.html">README</a>
+      <li><a href="../two-fer/q.html">q</a>
+    </ul></details>
+    <li><details><summary>word-count</summary>
+    <ul class="link-list">
+      <li><a href="../word-count/HELP_md.html">HELP</a>
+      <li><a href="../word-count/README_md.html">README</a>
+    </ul></details>
+    <li><details><summary>wordy</summary>
+    <ul class="link-list">
+      <li><a href="../wordy/HELP_md.html">HELP</a>
+      <li><a href="../wordy/README_md.html">README</a>
+    </ul></details>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.14.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page assembly-line/README.md">
+
+<h1 id="label-Assembly+Line">Assembly Line<span><a href="#label-Assembly+Line">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Welcome to Assembly Line on Exercism’s Ruby Track. If you need help running the tests or submitting your code, check out <code>HELP.md</code>. If you get stuck on the exercise, check out <code>HINTS.md</code>, but try and solve it without using those first :)</p>
+
+<h2 id="label-Introduction">Introduction<span><a href="#label-Introduction">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h2 id="label-Numbers">Numbers<span><a href="#label-Numbers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The two most common types of numbers in Ruby are:</p>
+<ul><li>
+<p><strong>Integers:</strong> numbers with no digits behind the decimal separator (whole numbers). Examples are <code>-6</code>, <code>0</code>, <code>1</code>, <code>25</code>, <code>976</code> and <code>500000</code>.</p>
+</li><li>
+<p><strong>Floating-point numbers:</strong> numbers with one or more digits behind the decimal separator. Examples are <code>-2.4</code>, <code>0.1</code>, <code>3.14</code>, <code>16.984025</code> and <code>1024.0</code>.</p>
+</li></ul>
+
+<p>They are implemented through the <code>Integer</code> and <code>Float</code> classes.</p>
+
+<p>These classes have methods that will coerce values from one to the other. <code>Integer</code> numbers are precise to a whole unit, while <code>Float</code> has precision that is fractional to a whole number: - <code>Integer#to_f</code>: Coerce to a new float - <code>Float#ceil</code>: Round up to the nearest integer - <code>Float#floor</code>: Round down to the nearest integer - <code>Float#round</code>: Round to the nearest integer - <code>Float#to_i</code>: Truncate to the nearest integer</p>
+
+<h2 id="label-Conditionals">Conditionals<span><a href="#label-Conditionals">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Ruby has what is known as flow control expressions, these are used to control the way the program will run and they take a truthy or falsey value. There are operators that can be used to create truthy or falsey values, these are known as <a href="https://www.w3resource.com/ruby/ruby-comparison-operators.php">comparison operators</a>.</p>
+
+<p>There are two main control expressions that are used to control which code will run and which will not. Also known as which given branch will run.</p>
+
+<p>Those two are: <code>if</code> and the <code>unless</code> expression.</p>
+
+<h2 id="label-Comparison+operators">Comparison operators<span><a href="#label-Comparison+operators">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="https://www.w3resource.com/ruby/ruby-comparison-operators.php">Comparison operators</a> are used to compare values and return a <code>true</code> or <code>false</code> value. The following operators require two values to be compared of the same type. If the values are not of the same type then the compiler will throw an error. Here is a list of the operators and an example of when they give a <code>true</code> value:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>less than</td>
+<td>4 &lt; 5</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>less than or equal</td>
+<td>4 &lt;= 4</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>greater than</td>
+<td>3 &gt; 1</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>greater than or equal</td>
+<td>2 &gt;= 2</td>
+</tr>
+</tbody>
+</table>
+
+<p>The equal and not equal operators can be used to compare any type of value contrary to the operators already mentioned. The <code>==</code> operator is used to check if two values are equal, and that includes checking the type of the value. The <code>!=</code> works the same way but it will return <code>true</code> if the values are not equal and <code>false</code> if they are equal. Here is a list of the equal and not equal operators and an example of when they give a <code>true</code> value:</p>
+
+<table role="table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>equal</td>
+<td>4 == 4</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>not equal</td>
+<td>5 != 4</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="label-If+statement">If statement<span><a href="#label-If+statement">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The {<code>if</code><a href="https://www.rubyguides.com/ruby-tutorial/ruby-if-else/">}</a> statement is used to check if a given condition is “truthy” or “falsey”. If the condition is truthy then the code inside the if statement will run. An <code>if</code> statement ends with the <code>end</code> keyword.</p>
+
+<pre class="ruby"><span class="ruby-identifier">value</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-string">&quot;1 is equal to 1&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; &quot;1 is equal to 1&quot;</span>
+
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+  <span class="ruby-string">&quot;1 is greater than 2&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<h2 id="label-Unless+statement">Unless statement<span><a href="#label-Unless+statement">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The <code>unless</code> statement works very similarly to the <code>if</code> statement but it will run the code inside the <code>unless</code> statement if the condition is falsey.</p>
+
+<pre class="ruby"><span class="ruby-identifier">value</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-string">&quot;1 is not equal to 1&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; nil</span>
+
+<span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+  <span class="ruby-string">&quot;1 is not greater than 2&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; &quot;1 is not greater than 2&quot;</span>
+</pre>
+
+<h2 id="label-Else+statement">Else statement<span><a href="#label-Else+statement">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The <code>else</code> statement can be used in conjunction with the <code>if</code> statement. The <code>else</code> statement will be executed if the <code>if</code> branch is not executed.</p>
+
+<pre class="ruby"><span class="ruby-identifier">value</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-string">&quot;1 is equal to 1&quot;</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-string">&quot;1 is not equal to 1&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; &quot;1 is equal to 1&quot;</span>
+</pre>
+
+<h2 id="label-22Cascading-if-22+statements">“Cascading-if” statements<span><a href="#label-22Cascading-if-22+statements">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The <code>elsif</code> statement can be used in conjunction with the if statement. The <code>elsif</code> statement will be executed if the if branch is not executed and the condition of the elsif statement is truthy. Elsif statements can be chained together and the first truthy condition will be executed. There can also be an else statement at the end of the if statement which will run if non of the earlier statement has been true.</p>
+
+<pre class="ruby"><span class="ruby-identifier">value</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+  <span class="ruby-string">&quot;1 is not equal to 1&quot;</span>
+<span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+  <span class="ruby-string">&quot;1 is greater than 2&quot;</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-string">&quot;1 is not equal to 1 and 1 is not greater than 2&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; &quot;1 is not equal to 1 and 1 is not greater than 2&quot;</span>
+</pre>
+
+<h2 id="label-Instructions">Instructions<span><a href="#label-Instructions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>In this exercise you’ll be writing code to analyze the production of an assembly line in a car factory. The assembly line’s speed can range from <code>0</code> (off) to <code>10</code> (maximum).</p>
+
+<p>At its slowest speed (<code>1</code>), <code>221</code> cars are produced each hour. The production increases linearly with the speed. So with the speed set to <code>4</code>, it should produce <code>4 * 221 = 884</code> cars per hour. However, higher speeds increase the likelihood that faulty cars are produced, which then have to be discarded. The following table shows how speed influences the success rate:</p>
+<ul><li>
+<p><code>1</code> to <code>4</code>: 100% success rate.</p>
+</li><li>
+<p><code>5</code> to <code>8</code>: 90% success rate.</p>
+</li><li>
+<p><code>9</code>: 80% success rate.</p>
+</li><li>
+<p><code>10</code>: 77% success rate.</p>
+</li></ul>
+
+<p>You have two tasks.</p>
+
+<h2 id="label-1.+Calculate+the+production+rate+per+hour">1. Calculate the production rate per hour<span><a href="#label-1.+Calculate+the+production+rate+per+hour">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Implement the <a href="../AssemblyLine.html#method-i-production_rate_per_hour"><code>AssemblyLine#production_rate_per_hour</code></a> method to calculate the assembly line’s production rate per hour, taking into account its success rate. Note that the value returned is an instance of <code>Float</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">AssemblyLine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">6</span>).<span class="ruby-identifier">production_rate_per_hour</span>
+<span class="ruby-comment">#=&gt; 1193.4</span>
+</pre>
+
+<h2 id="label-2.+Calculate+the+number+of+working+items+produced+per+minute">2. Calculate the number of working items produced per minute<span><a href="#label-2.+Calculate+the+number+of+working+items+produced+per+minute">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Implement the <a href="../AssemblyLine.html#method-i-working_items_per_minute"><code>AssemblyLine#working_items_per_minute</code></a> method to calculate how many <strong>completed, working cars</strong> are produced per minute. Note that the value returned is an instance of <code>Integer</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">AssemblyLine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">6</span>).<span class="ruby-identifier">working_items_per_minute</span>
+<span class="ruby-comment">#=&gt; 19</span>
+</pre>
+
+<h2 id="label-Source">Source<span><a href="#label-Source">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Created+by">Created by<span><a href="#label-Created+by">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>@dvik1950</p>
+</li></ul>
+
+<h3 id="label-Contributed+to+by">Contributed to by<span><a href="#label-Contributed+to+by">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>@kotp</p>
+</li><li>
+<p>@iHiD</p>
+</li></ul>
+
+</main>
+

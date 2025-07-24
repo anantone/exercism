@@ -1,20 +1,23 @@
 class Cipher
 
-  def initialize
-    @key = key
+  def initialize(key = '')
+    @plaintext = plaintext
+    unless key.match(/[a-zA-Z]+/)
+      raise ArgumentError.new
+    end
+    if key == ''
+      @key = (0...100).map { rand(26).chr }.join
+    else
+      @key = key
+    end
   end
 
-  def key
-    if @key == ''
-      @key = (0...100).map { rand(26).chr }.join
-    end
-    @key
-  end
+  attr_reader :plaintext, :key
 
   def encode(plaintext)
 
   end
 
-  def decode(ciphertext)
+  def decode(encodedtext)
   end
 end
