@@ -2,11 +2,6 @@ require 'minitest/autorun'
 require_relative 'protein_translation'
 
 class ProteinTranslationTest < Minitest::Test
-  def skip
-  end
-
-  class InvalidCodonError < StandardError; end
-
   def test_empty_rna_sequence_results_in_no_proteins
     # skip
     strand = ""
@@ -15,7 +10,7 @@ class ProteinTranslationTest < Minitest::Test
   end
 
   def test_methionine_rna_sequence
-    #skip
+    skip
     strand = "AUG"
     expected = ["Methionine"]
     assert_equal expected, Translation.of_rna(strand)

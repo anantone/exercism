@@ -10,7 +10,9 @@ module Translation
       tryptophan: ['UGG'],
       stop: ['UAA', 'UAG', 'UGA']
   }
- 
+
+  class ProteinTranslationTest::InvalidCodonError; end
+
   def self.of_rna(strand)
     # Get codons from RNA strand
     codons = []
