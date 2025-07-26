@@ -10,6 +10,8 @@ module Translation
       tryptophan: ['UGG'],
       stop: ['UAA', 'UAG', 'UGA']
   }
+ 
+  class InvalidCodonError < StandardError; end
 
   def self.of_rna(strand)
     # Get codons from RNA strand
@@ -25,12 +27,12 @@ module Translation
     }
     # Validate strand length
     unless strand.length % 3 == 0
-      raise ProteinTranslationTest::InvalidCodonError.new
+      raise InvalidCodonError.new
     end
     # Validate codons
     codons.each do |codon|
       unless AAC.values.flatten.include?(codon)
-        raise ProteinTranslationTest::InvalidCodonError.new
+        raise InvalidCodonError.new
       end
     end
     # Get amino acids sequence from codons
