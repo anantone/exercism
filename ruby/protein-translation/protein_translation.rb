@@ -1,3 +1,6 @@
+# Making this error accessible for the test file 
+# was problematic: this is a fix copied from
+# community solutions
 class InvalidCodonError < EncodingError; end
 
 class Translation
@@ -19,7 +22,7 @@ class Translation
     until strand.empty?
       codons << strand.slice!(0..2)
     end
-    # Take "Stop" into account
+    # Take "stop" into account
     AAC.fetch(:stop).any? { |stop| 
       if codons.include?(stop) 
         codons.slice!(codons.index(stop)..-1)
@@ -36,15 +39,15 @@ class Translation
       end
     end
     # Get amino acids sequence from codons
-    aminoacids = []
+    amino_acids = []
     codons.each do |codon|
       AAC.each_value do |aa|
         if aa.include?(codon)
-          aminoacids.push(AAC.key(aa).to_s.capitalize!)
+          amino_acids.push(AAC.key(aa).to_s.capitalize!)
         end
       end
     end
-    aminoacids
+    amino_acids
   end
 
 end
