@@ -1,23 +1,53 @@
 class Cipher
 
-  def initialize(key = '')
-    @plaintext = plaintext
-    unless key.match(/[a-zA-Z]+/)
+  # If no key is provided, generate a key which consists of at least 100 random lowercase letters from the Latin alphabet.
+  
+  def initialize(key = (0...100).map { (97 + rand(26)).chr }.join)
+    # Raise ArgumentError if key CAPS, numeric, or empty
+    if /[[:upper:]]|^[0-9]+$|^$/.match(key)
       raise ArgumentError.new
     end
-    if key == ''
-      @key = (0...100).map { rand(26).chr }.join
-    else
-      @key = key
-    end
+    @key = key
+    @plaintext = plaintext
   end
 
   attr_reader :plaintext, :key
 
   def encode(plaintext)
-
+    # Convert plaintext to ASCII code
+    ords = plaintext.bytes
+    # Calculate the shift based on key
+    offset = key.each_byte.map do |a|
+      a - 97
+    end
+    # Apply the shift to each character code
+    cyph = ords.each_with_index.map do |a, idx|
+      a + offset[idx % offset.length]
+    end
+    # Wrap around alphabet as needed
+    cyph.map! do |c|
+     c > 122 ? c - 26 : c
+    end 
+    # Return from ASCII to ciphertext
+    cyph.map { |c| c.chr }.join
   end
-
-  def decode(encodedtext)
+  
+  def decode(ciphertext)
+    # Convert ciphertext to ASCII code
+    ords = ciphertext.bytes
+    # Calculate the shift based on key
+    offset = key.each_byte.map do |a|
+      a - 97
+    end
+    # Apply the shift to each character code
+    cyph = ords.each_with_index.map do |a, idx|
+      a - offset[idx % offset.length]
+    end
+    # Wrap around alphabet as needed
+    cyph.map! do |c|
+      c < 97 ? c + 26 : c
+    end
+    # Return from ASCII to plaintext
+    cyph.map { |c| c.chr }.join
   end
 end
