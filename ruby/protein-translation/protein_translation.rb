@@ -1,6 +1,3 @@
-# Making this error accessible for the test file 
-# was problematic: this is a fix copied from
-# community solutions
 class InvalidCodonError < EncodingError; end
 
 class Translation
@@ -23,31 +20,28 @@ class Translation
       codons << strand.slice!(0..2)
     end
     # Take "stop" into account
-    AAC.fetch(:stop).any? { |stop| 
+    AAC.fetch(:stop).any? { |stop|
       if codons.include?(stop) 
         codons.slice!(codons.index(stop)..-1)
-      end  
+      end
     }
-    # Validate strand length
-    unless strand.length % 3 == 0
+    # Validate strand length, codons
+    unless strand.length % 3 == 0 && codons.all? do
+      |codon| AAC.values.flatten.include?(codon)
+        end
       raise InvalidCodonError.new
     end
-    # Validate codons
-    codons.each do |codon|
-      unless AAC.values.flatten.include?(codon)
-        raise InvalidCodonError.new
-      end
-    end
     # Get amino acids sequence from codons
-    amino_acids = []
-    codons.each do |codon|
-      AAC.each_value do |aa|
-        if aa.include?(codon)
-          amino_acids.push(AAC.key(aa).to_s.capitalize!)
-        end
-      end
+    amino_acids = codons.map do |codon|
+      translate_codon_to_aminoacid(codon)
     end
-    amino_acids
+    amino_acids.flatten
+  end
+
+  def self.translate_codon_to_aminoacid(codon)
+      AAC.filter_map do |key, aa|
+        key.to_s.capitalize! if aa.include?(codon)
+      end
   end
 
 end
