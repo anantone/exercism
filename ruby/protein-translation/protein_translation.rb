@@ -19,12 +19,7 @@ class Translation
     until strand.empty?
       codons << strand.slice!(0..2)
     end
-    # Take "stop" into account
-    AAC.fetch(:stop).any? { |stop|
-      if codons.include?(stop)
-        codons.slice!(codons.index(stop)..-1)
-      end
-    }
+    codons = stop?(codons)
     # Validate strand length, codons
     unless strand.length % 3 == 0 && codons.all? do
       |codon| AAC.values.flatten.include?(codon)
@@ -33,6 +28,16 @@ class Translation
     end
     build_sequence_of_amino_acids(codons)
   end
+
+  def self.stop?(codons)
+    # Shorten the codons array if "stop" is present
+    AAC.fetch(:stop).any? { |stop|
+      if codons.include?(stop)
+        codons.slice!(codons.index(stop)..-1)
+      end
+    }
+  end
+
 
   def self.build_sequence_of_amino_acids(codons)
     # For each element of the codons array, get the corresponding amino acid
