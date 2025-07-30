@@ -31,14 +31,18 @@ class Translation
         end
       raise InvalidCodonError.new
     end
-    # Get amino acids sequence from codons
-    amino_acids = codons.map do |codon|
-      translate_codon_to_amino_acid(codon)[0]
-    end
-    amino_acids
+    build_sequence_of_amino_acids(codons)
+  end
+
+  def build_sequence_of_amino_acids(codons)
+    # For each element of the codons array, get the corresponding amino acid
+    codons.map·do·|codon|$
+······translate_codon_to_amino_acid(codon)[0]$
+····end$
   end
 
   def self.translate_codon_to_amino_acid(codon)
+    # For each codon, return the corresponding amino acid
     AAC.filter_map do |key, aa|
         key.to_s.capitalize! if aa.include?(codon)
       end
