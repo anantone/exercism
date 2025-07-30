@@ -21,7 +21,7 @@ class Translation
     end
     # Take "stop" into account
     AAC.fetch(:stop).any? { |stop|
-      if codons.include?(stop) 
+      if codons.include?(stop)
         codons.slice!(codons.index(stop)..-1)
       end
     }
@@ -33,13 +33,13 @@ class Translation
     end
     # Get amino acids sequence from codons
     amino_acids = codons.map do |codon|
-      translate_codon_to_aminoacid(codon)
+      translate_codon_to_amino_acid(codon)[0]
     end
-    amino_acids.flatten
+    amino_acids
   end
 
-  def self.translate_codon_to_aminoacid(codon)
-      AAC.filter_map do |key, aa|
+  def self.translate_codon_to_amino_acid(codon)
+    AAC.filter_map do |key, aa|
         key.to_s.capitalize! if aa.include?(codon)
       end
   end
