@@ -14,19 +14,19 @@ class Translation
   }
 
   def self.of_rna(strand)
+    codons = from_rna_strand_to_codons(strand)
+    codons = stop?(codons)
+    validate_codons_data(strand, codons)
+    build_sequence_of_amino_acids(codons)
+  end
+
+  def self.from_rna_strand_to_codons(strand)
     # Get codons from RNA strand
     codons = []
     until strand.empty?
       codons << strand.slice!(0..2)
     end
-    codons = stop?(codons)
-    # Validate strand length, codons
-    unless strand.length % 3 == 0 && codons.all? do
-      |codon| AAC.values.flatten.include?(codon)
-        end
-      raise InvalidCodonError.new
-    end
-    build_sequence_of_amino_acids(codons)
+    codons
   end
 
   def self.stop?(codons)
@@ -36,8 +36,17 @@ class Translation
         codons.slice!(codons.index(stop)..-1)
       end
     }
+    codons
   end
 
+  def self.validate_codons_data(strand, codons)
+    # Validate strand length and codons content
+    unless strand.length % 3 == 0 && codons.all? do
+      |codon| AAC.values.flatten.include?(codon)
+        end
+      raise InvalidCodonError.new
+    end
+  end
 
   def self.build_sequence_of_amino_acids(codons)
     # For each element of the codons array, get the corresponding amino acid
