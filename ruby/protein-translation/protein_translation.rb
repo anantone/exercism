@@ -34,11 +34,11 @@ class Translation
     build_sequence_of_amino_acids(codons)
   end
 
-  def build_sequence_of_amino_acids(codons)
+  def self.build_sequence_of_amino_acids(codons)
     # For each element of the codons array, get the corresponding amino acid
-    codons.map·do·|codon|$
-······translate_codon_to_amino_acid(codon)[0]$
-····end$
+    codons.map do |codon|
+      translate_codon_to_amino_acid(codon)[0]
+    end
   end
 
   def self.translate_codon_to_amino_acid(codon)
