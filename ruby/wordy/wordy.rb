@@ -1,34 +1,34 @@
 module WordProblemExceptions
-
   class QuestionError < ArgumentError
-
     def initialize(message = "I don't understand the question")
       super
     end
-
   end
-
 end
-
 
 class WordProblem
   include WordProblemExceptions
 
   RE = REGULAR_EXPRESSIONS = {
-    :nums_and_ops => %r{
-      (?<num1>-?\d+?)\s*                           # First number
-      (?<op1>(plus|minus|multiplied|divided))\s*   # First operator
-      (?<num2>-?\d+)\s*                            # Second number
-      (?<op2>(plus|minus|multiplied|divided))?\s*  # Second operator (optional)
-      (?<num3>-?\d+)?\s*                           # Third number (optional)
+    :short => %r{
+    (?<num1>-?\d+?)\s.*                             # First number
+    (?<op1>(plus|minus|multiplied|divided)).*\s     # First operator
+    (?<num2>-?\d+).*                                # Second number
+    }x,
+    :long => %r{
+    (?<num1>-?\d+?)\s.*                             # First number
+    (?<op1>(plus|minus|multiplied|divided)).*\s     # First operator
+    (?<num2>-?\d+)\s.*                              # Second number
+    (?<op2>(plus|minus|multiplied|divided)).*\s     # Second operator
+    (?<num3>-?\d+).*                                # Third number
     }x
 }
 
   OPERATION = {
     'plus'          => :+,
     'minus'         => :-,
-    'multiplied by' => :*,
-    'divided by'    => :/
+    'multiplied'    => :*,
+    'divided'       => :/
 }
 
   private_constant :RE
@@ -40,27 +40,14 @@ class WordProblem
   attr_accessor :question
 
   def answer
-    expression = question.match(RE[:nums_and_ops])
-    unless expression
-      raise QuestionError.new
-    end
-    if expression[:num3]
-      expression[:num1].to_i.send(operation(expression[:op1]), expression[:num2].to_i).send(operation(expression[:op2]), expression[:num3].to_i)
+    if question.match(RE[:long])
+      expression = question.match(RE[:long])
+      expression[:num1].to_i.send(OPERATION[expression[:op1]], expression[:num2].to_i).send(OPERATION[expression[:op2]], expression[:num3].to_i)
+    elsif question.match(RE[:short])
+      expression = question.match(RE[:short])
+      expression[:num1].to_i.send(OPERATION[expression[:op1]], expression[:num2].to_i)
     else
-      expression[:num1].to_i.send(operation(expression[:op1]), expression[:num2].to_i)
-    end
-  end
-
-  def operation(string)
-    case string 
-    when 'plus'
-      :+
-    when 'minus'
-      :-
-    when 'multiplied'
-      :*
-    when 'divided'
-      :/
+      raise QuestionError.new
     end
   end
 
