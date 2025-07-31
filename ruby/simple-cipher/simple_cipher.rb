@@ -25,14 +25,16 @@ class Cipher
   attr_reader :message, 
               :offset, 
               :key
+  def code(ascii, offset)
+    # Apply the shift to each character code
+    ascii.each_with_index.map do |letter, index|
+      letter + offset[index % offset.length]
+    end
 
   def encode(message)
     # Convert plaintext to ASCII code
     ascii = message.bytes
-    # Apply the shift to each character code
-    encoded = ascii.each_with_index.map do |letter, index|
-      letter + offset[index % offset.length]
-    end
+    encoded = code(ascii, offset)
     # Wrap around alphabet as needed
     encoded.map! do |c|
      c > 122 ? c - 26 : c
@@ -45,9 +47,8 @@ class Cipher
     # Convert ciphertext to ASCII code
     ascii = ciphertext.bytes
     # Apply the shift to each character code
-    decoded = ascii.each_with_index.map do |letter, index|
-      letter - offset[index % offset.length]
-    end
+    offset = -offset
+    decoded = code(ascii, offset)
     # Wrap around alphabet as needed
     decoded.map! do |c|
       c < 97 ? c + 26 : c
