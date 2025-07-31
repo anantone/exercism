@@ -21,44 +21,42 @@ class Cipher
   end
 
   public
-  
-  attr_reader :key, 
-              :shift, 
+
+  attr_reader :key,
+              :shift,
               :message
-  
-  def code(ascii, shift)
-    # Apply the shift to each character code
-    ascii.each_with_index.map do |letter, index|
+
+  def code(message, shift)
+    # Convert message to ASCII
+    ascii = message.bytes
+    # Apply shift to each ASCII code
+    coded = ascii.each_with_index.map do |letter, index|
       letter + shift[index % shift.length]
     end
+    # Wrap around alphabet as needed
+    coded.map! do |letter|
+      if letter > 122
+        letter -= 26
+      elsif letter < 97
+        letter += 26
+      else
+        letter = letter
+      end
+    end
+    # Return from ASCII to plaintext
+    coded.map { |char| char.chr }.join
   end
 
   def encode(message)
-    # Convert plaintext to ASCII code
-    ascii = message.bytes
-    # Apply the shift to each character code
-    encoded = code(ascii, shift)
-    # Wrap around alphabet as needed
-    encoded.map! do |c|
-     c > 122 ? c - 26 : c
-    end 
-    # Return from ASCII to ciphertext
-    encoded.map { |c| c.chr }.join
+    # Encode
+    code(message, shift)
   end
 
-  def decode(ciphertext)
-    # Convert ciphertext to ASCII code
-    ascii = ciphertext.bytes
+  def decode(message)
     # Decoding, so shift is negative
     shift = self.shift.map { |number| -number }
-    # Apply the shift to each character code
-    decoded = code(ascii, shift)
-    # Wrap around alphabet as needed
-    decoded.map! do |c|
-      c < 97 ? c + 26 : c
-    end
-    # Return from ASCII to plaintext
-    decoded.map { |c| c.chr }.join
+    # Decode
+    code(message, shift)
   end
 
 end
