@@ -26,14 +26,14 @@ class ResistorColorTrio
   attr_reader :band1, :band2, :band3
 
   def label
-    value = ('%i%ie%i' % [band1, band2, band3]).to_f.to_i.to_s
-    
-    if value.to_i < 1000
-      value << ' ohms'
+    value = '%i%ie+%i' % [band1, band2, band3]
+
+    if value.to_f > 1000
+      value = value.to_f / 1000
+      'Resistor value: %g kiloohms' % value
     else
-      value.gsub!(/000\b/, ' kiloohms')
+      'Resistor value: %g ohms' % value
     end
-    'Resistor value: %s' % value
   end
 
 end
