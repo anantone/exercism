@@ -1,67 +1,63 @@
-class Teams
-
-  attr_accessor :name, :mp, :w, :d, :l, :pts
-
-  def initialize(name, mp = 0, w = 0, d = 0, l = 0, pts = 0)
-    self.name = name
-    self.mp = mp
-    self.w = w
-    self.d = d
-    self.l = l
-    self.pts = pts
-  end
-
-  def play(result)
-    self.mp += 1
-    case result
-    when 'win'
-      self.w += 1
-      self.pts += 3
-    when 'draw'
-      self.d += 1
-      self.pts += 1
-    when 'loss'
-      self.l += 1
-    end
-  end
-end
-
-class Tournament < Teams
+class Tournament
 
   def self.tally(input)
-    header = "Team                           | MP |  W |  D |  L |  P\n"
-    if input.empty? 
-      header
+    # Format header
+    header = "%-31s" % "Team"
+    header << "%s" % "| MP "
+    header << "%s" % "|  W "
+    header << "%s" % "|  D "
+    header << "%s" % "|  L "
+    header << "%s" % "|  P\n"
+    # Return empty table
+    if input == "\n"
+      return header
     end
+    # Create results ledger
+    teams = {}
+    # Read the results
     matches = input.split("\n")
     matches.each do |match|
       result = match.split(';')
-      # Create Team instance if not exist
-      if !result[0].instance_of? Teams
-        result[0] = Teams.new(result[0])
+      # Create teams if not exist
+      unless teams.keys.include?(result[0])
+        teams[result[0]] = [0, 0, 0, 0, 0]
       end
-      if !result[1].instance_of? Teams
-        result[1] = Teams.new(result[1])
+      unless teams.keys.include?(result[1])
+        teams[result[1]] = [0, 0, 0, 0, 0]
       end
       # Apply the game's outcome
       if result[2] == 'win'
-        result[0].play('win')
-        result[1].play('loss')
+        teams[result[0]][0] += 1
+        teams[result[0]][1] += 1
+        teams[result[0]][4] += 3
+        teams[result[1]][0] += 1
+        teams[result[1]][3] += 1
       elsif result[2] == 'draw'
-        result[0].play('draw')
-        result[1].play('draw')
+        teams[result[0]][0] += 1
+        teams[result[0]][2] += 1
+        teams[result[0]][4] += 1
+        teams[result[1]][0] += 1
+        teams[result[1]][2] += 1
+        teams[result[1]][4] += 1
       elsif result[2] == 'loss'
-        result[0].play('loss')
-        result[1].play('win')
+        teams[result[0]][0] += 1
+        teams[result[0]][3] += 1
+        teams[result[1]][0] += 1
+        teams[result[1]][1] += 1
+        teams[result[1]][4] += 3
       end
     end
-    # Rank the teams by points
-    rankings = ObjectSpace.each_object(Teams).to_a
-    rankings.sort_by! { |team| -team.pts } 
+    # Rank the teams by points, tiebreak alpha
+    rankings = teams.sort_by { |key, value| [-value[4], key] }
     # Build a string for each team's results
     results = ''
-    rankings.each do |team|
-      results << "%s             |  %i |  %i |  %i |  %i |  %i\n" % [team.name, team.mp, team.w, team.d, team.l, team.pts]
+    rankings.each do |team, tally|
+      results << "%-31s" % team 
+      results << "| %2i " % tally[0]
+      results << "| %2i " % tally[1]
+      results << "| %2i " % tally[2] 
+      results << "| %2i " % tally[3] 
+      results << "| %2i\n" % tally[4]
     end
     # Display result table
     header + results
