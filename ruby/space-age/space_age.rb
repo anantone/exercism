@@ -2,14 +2,14 @@
 class SpaceAge
 
   PYES = PLANET_YEAR_IN_EARTH_SECONDS = {
-                 on_mercury:  7600543.8,
-                 on_venus:    19414149.1,
-                 on_earth:    31557600.0,
-                 on_mars:     59354032.7,
-                 on_jupiter:  374355659.1,
-                 on_saturn:   929292362.9,
-                 on_uranus:   2651370019.3,
-                 on_neptune:  5200418560.0
+                 on_mercury:  7600543r,
+                 on_venus:    19414149r,
+                 on_earth:    31557600r,
+                 on_mars:     59354032r,
+                 on_jupiter:  374355659r,
+                 on_saturn:   929292362r,
+                 on_uranus:   2651370019r,
+                 on_neptune:  5200418560r
 }
 
   private_constant :PYES
@@ -18,9 +18,11 @@ class SpaceAge
 
   attr_accessor :age_in_seconds
 
-  def method_missing(method_name)
+  def method_missing(method_name, *args)
     if respond_to_missing?(method_name)
-      planet_years(method_name)
+      self.class.define_method(method_name) do |method_name|
+        self._age_in_seconds / PYES[method_name]
+      end
     else
       super
     end
@@ -28,10 +30,6 @@ class SpaceAge
 
   def respond_to_missing?(method_name)
     PYES.keys.include?(method_name)
-  end
-
-  def planet_years(planet)
-    self.age_in_seconds / PYES[planet]
   end
 
   def initialize(age_in_seconds)
