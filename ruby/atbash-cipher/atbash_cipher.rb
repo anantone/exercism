@@ -6,10 +6,12 @@ class Atbash
     code = ''
     # Downcase everything
     data = message.downcase
+    # Iterate over characters
     data.each_char do |char|
       # Get rid of punctuation and space
       if char.match(/\W/)
         next
+      # Transcode numbers
       elsif char.match(/\d/)
         code << char
       else
@@ -34,7 +36,7 @@ class Atbash
       # Skip white space
       if char.match(/\s/)
         next
-      # Decode numbers
+      # Transcode numbers
       elsif char.match(/\d/)
         result << char
       # Reverse using index
