@@ -13,9 +13,6 @@ class Nucleotide
   end
 
   def count(letter)
-    if @strand == ''
-      return 0
-    end
     count = 0
     @strand.each_char do |char|
       count += 1 if char == letter
