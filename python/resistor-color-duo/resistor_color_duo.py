@@ -12,7 +12,4 @@ BANDS = {
   }
      
 def value(colors):
-    values = ''
-    for i in range(2):
-        values += str(BANDS[colors[i]])
-    return int(values)
+    return 10*BANDS[colors[0]] + BANDS[colors[1]]
