@@ -8,13 +8,14 @@ module Grains
       raise ArgumentError.new
     end
     # Apply geometric series formula
-    2**(number-1)
+    # as a bitwise operation
+    1 << (number-1)
   end
 
   def self.total
   # The constant could easily be a variable,
   # if we wanted the total at any given point
-    -1+2**NUMBER_OF_SQUARES
+    (1 << NUMBER_OF_SQUARES) - 1
   end
   
 end
