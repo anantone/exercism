@@ -1,17 +1,17 @@
 module CollatzConjecture
 
-  def self.steps(number, count = [])
+  def self.steps(number, count = 0)
     if number <= 0
       raise ArgumentError.new
     end
     if number == 1
-      count.length
+      count
     else
       if number % 2 == 0
-        count.push(number)
+        count += 1
         steps(number / 2, count)
       else
-        count.push(number)
+        count += 1
         steps(number * 3 + 1, count)
       end
     end
