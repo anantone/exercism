@@ -41,8 +41,7 @@ def create_record(azara_record, rui_record):
     """
     if compare_records(azara_record, rui_record):
         return azara_record + rui_record
-    else:
-        return "not a match"
+    return "not a match"
     
 
 
