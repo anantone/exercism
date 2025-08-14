@@ -1,6 +1,5 @@
 export function age(planet: string, seconds: number): number {
-  // pyes = planet years in earth seconds
-  const pyes: Record<string, number> = {
+  const planetYearsInEarthSeconds: Record<string, number> = {
                   mercury: 1/7600543,
                   earth: 1/31557600,
                   venus: 1/19414149,
@@ -10,5 +9,6 @@ export function age(planet: string, seconds: number): number {
                   uranus: 1/2651370019,
                   neptune: 1/5200418560
   };
-  return Math.round(seconds * pyes[planet] * 100) / 100;
+  var orbitalPeriods = seconds * planetYearsInEarthSeconds[planet]
+  return parseFloat(orbitalPeriods.toFixed(2));
 }
