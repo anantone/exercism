@@ -15,7 +15,7 @@ std::string convert(int number) {
         sound += "Plong";
     }
     if (sound == "") {
-        std::string num_as_string = std::__cxx11::to_string(number);
+        std::string num_as_string = std::to_string(number);
         return num_as_string;
     } else {
         return sound;
