@@ -9,6 +9,6 @@ export function age(planet: string, seconds: number): number {
                   uranus: 1/2651370019,
                   neptune: 1/5200418560
   };
-  var orbitalPeriods = seconds * planetYearsInEarthSeconds[planet]
+  let orbitalPeriods = seconds * planetYearsInEarthSeconds[planet]
   return parseFloat(orbitalPeriods.toFixed(2));
 }
