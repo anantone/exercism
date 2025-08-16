@@ -1,7 +1,7 @@
 # Given an age in (Earth) seconds, returns its equivalent in local orbital years for each solar system planet, when called with `on_planet_name` (`on_mercury`, `on_earth`)
 class SpaceAge
 
-  PYES = PLANET_YEAR_IN_EARTH_SECONDS = {
+  ESPY = EARTH_SECONDS_PER_PLANET_YEAR = {
                  on_mercury:  7600543r,
                  on_venus:    19414149r,
                  on_earth:    31557600r,
@@ -12,7 +12,7 @@ class SpaceAge
                  on_neptune:  5200418560r
 }
 
-  private_constant :PYES
+  private_constant :ESPY
 
   private
 
@@ -21,15 +21,15 @@ class SpaceAge
   def method_missing(method_name, *args)
     if respond_to_missing?(method_name)
       self.class.define_method(method_name) do |method_name|
-        self._age_in_seconds / PYES[method_name]
+        self.age_in_seconds / ESPY[method_name]
       end
     else
       super
     end
   end
 
-  def respond_to_missing?(method_name)
-    PYES.keys.include?(method_name)
+  def respond_to_missing?(method_name, *args)
+    ESPY.include?(method_name)
   end
 
   def initialize(age_in_seconds)
