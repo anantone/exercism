@@ -4,13 +4,14 @@
 double interest_rate(double balance) {
     if (balance < 0) {
         return 3.213;
-    } else if (balance < 1000) {
+    } 
+    if (balance < 1000) {
         return 0.5;
-    } else if (balance < 5000) {
+    } 
+    if (balance < 5000) {
         return 1.621;
-    } else {
-        return 2.475;
-    }  
+    }
+    return 2.475;  
 }
 
 // yearly_interest calculates the yearly interest for the provided balance.
