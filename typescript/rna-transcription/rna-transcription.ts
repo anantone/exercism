@@ -1,24 +1,17 @@
 export function toRna(dna: string): string {
-  const nucleotides = 'GCTA';
+  let nucleotides = new Map<string, string>([
+        ["G", "C"],
+        ["C", "G"],
+        ["T", "A"],
+        ["A", "U"]
+    ]);
   let rna = '';
   for (const nucleotide of dna) {
-    if (nucleotides.includes(nucleotide)) {
-      rna += convert(nucleotide)
+    if (nucleotides.has(nucleotide)) {
+      rna += nucleotides.get(nucleotide)
     } else {
       throw new Error('Invalid input DNA.');
     }
   }
   return rna;
-}
-
-export function convert(nucleotide: string): any {
-  if (nucleotide == 'G') {
-    return 'C';
-  } else if (nucleotide == 'C') {
-    return 'G';
-  } else if (nucleotide == 'T') {
-    return 'A';
-  } else if (nucleotide == 'A') {
-    return 'U';
-  }
 }
