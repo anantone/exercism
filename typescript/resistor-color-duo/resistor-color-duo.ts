@@ -3,7 +3,7 @@ export const colorCode = (color: string): number => {
 }
 
 export const decodedValue = (colors: string[]): number => {
-  return colorCode(colors[0]) * 10 + colorCode(colors[1]);
+  return +(colorCode(colors[0]).toString() + colorCode(colors[1]).toString());
 }
 
 export const COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white']
