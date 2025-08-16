@@ -1,10 +1,10 @@
 #include "vehicle_purchase.h"
 
 namespace vehicle_purchase {
-
+    
 // needs_license determines whether a license is needed to drive a type of
 // vehicle. Only "car" and "truck" require a license.
-bool needs_license(std::string kind) {
+bool needs_license(const std::string& kind) {
     return kind == "car" || kind == "truck";
 }
 
@@ -25,5 +25,5 @@ double calculate_resell_price(double original_price, double age) {
         return original_price * 0.5;
     }
 }
-
+    
 }  // namespace vehicle_purchase
