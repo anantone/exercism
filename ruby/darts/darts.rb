@@ -11,11 +11,12 @@ class Darts
   attr_reader :distance_to_center
   
   def score
-    if distance_to_center <= 1
+    case distance_to_center
+    when (0..1)
       10
-    elsif distance_to_center <= 5
+    when (1..5)
       5
-    elsif distance_to_center <= 10
+    when (5..10)
       1
     else
       0
