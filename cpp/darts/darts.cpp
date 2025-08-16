@@ -2,17 +2,22 @@
 
 namespace darts {
 
+const int inner_circle = 1;
+const int middle_circle = 5;
+const int outer_circle = 10;
+
 int score(double x, double y) {
-    double distance = sqrt(pow(x, 2) + pow(y, 2));
-    if (distance <= 1) {
+    double distance = hypot(x, y);
+    if (distance <= inner_circle) {
         return 10;
-    } else if (distance <= 5) {
+    } 
+    if (distance <= middle_circle) {
         return 5;
-    } else if (distance <= 10) {
+    } 
+    if (distance <= outer_circle) {
         return 1;
-    } else {
-        return 0;
     }
+    return 0;
 }
 
 }  // namespace darts
