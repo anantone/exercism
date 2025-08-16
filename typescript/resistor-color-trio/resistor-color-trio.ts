@@ -11,10 +11,10 @@ export const decodedValue = (colors: string[]): number => {
 export const decodedResistorValue = (colors: string[]): string => {
   let value = String(decodedValue(colors));
   
-  if (value.slice(-9) == '000000000') {
+  if (value.length > 9) {
     return value.slice(0, -9) + ' gigaohms';
     
-  } else if (value.slice(-6) == '000000') {
+  } else if (value.length > 6) {
     return value.slice(0, -6) + ' megaohms';
     
   } else if (value.slice(-3) == '000') {
