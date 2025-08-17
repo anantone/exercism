@@ -15,16 +15,16 @@ export const decodedValue = (colors: string[]): number => {
 export const decodedResistorValue = (colors: string[]): any => {
   let value = decodedValue(colors);
   
-  if (value >= 1000000000) {
-    value = value / 1000000000
+  if (value >= 1e9) {
+    value /= 1e9
     return `${value} gigaohms`;
   } 
-  if (value >= 1000000) {
-    value = value / 1000000
+  if (value >= 1e6) {
+    value /= 1e6
     return `${value} megaohms`;
   } 
-  if (value >= 1000) {
-    value = value / 1000
+  if (value >= 1e3) {
+    value /= 1e3
     return `${value} kiloohms`;
   }
   return `${value} ohms`;
