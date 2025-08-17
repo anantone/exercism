@@ -5,22 +5,27 @@ export const colorCode = (color: string): number => {
 }
 
 export const decodedValue = (colors: string[]): number => {
-  return (colorCode(colors[0]) * 10 + colorCode(colors[1])) * 10**colorCode(colors[2]);
+  const band1 = colorCode(colors[0]);
+  const band2 = colorCode(colors[1]);
+  const band3 = colorCode(colors[2]);
+  const value = `${band1}${band2}e${band3}`;
+  return Number(value);
 }
 
-export const decodedResistorValue = (colors: string[]): string => {
-  let value = String(decodedValue(colors));
+export const decodedResistorValue = (colors: string[]): any => {
+  let value = decodedValue(colors);
   
-  if (value.length > 9) {
-    return value.slice(0, -9) + ' gigaohms';
-    
-  } else if (value.length > 6) {
-    return value.slice(0, -6) + ' megaohms';
-    
-  } else if (value.slice(-3) == '000') {
-    return value.slice(0, -3) + ' kiloohms';
-    
-  } else {
-    return value + ' ohms';
+  if (value >= 1000000000) {
+    value = value / 1000000000
+    return `${value} gigaohms`;
+  } 
+  if (value >= 1000000) {
+    value = value / 1000000
+    return `${value} megaohms`;
+  } 
+  if (value >= 1000) {
+    value = value / 1000
+    return `${value} kiloohms`;
   }
+  return `${value} ohms`;
 }
