@@ -20,12 +20,9 @@ class SpaceAge
 
   def method_missing(method_name, *args)
     if respond_to_missing?(method_name)
-      self.class.define_method(method_name) do |method_name|
-        self.age_in_seconds / ESPY[method_name]
-      end
-    else
-      super
+        return self.age_in_seconds / ESPY[method_name]
     end
+    super
   end
 
   def respond_to_missing?(method_name, *args)
