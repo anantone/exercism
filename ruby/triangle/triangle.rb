@@ -1,27 +1,25 @@
 class Triangle
 
-  attr_accessor :side1, :side2, :side3
+  attr_accessor :sides
 
   def initialize(sides)
-    self.side1,
-    self.side2,
-    self.side3 = [sides[0], sides[1], sides[2]]
+    self.sides = sides
   end
 
   def triangle?
-    side1 > 0 && side2 > 0 && side3 > 0 && side1 + side2 >= side3 && side2 + side3 >= side1 && side1 + side3 >= side2
+    sides.all? { |side| side > 0 } && sides.permutation(3).all? { |(a, b, c)| a <= b + c }
   end
 
   def equilateral?
-    triangle? && side1 == side2 && side2 == side3
+    triangle? && sides.uniq.count == 1
   end
 
   def isosceles?
-    triangle? && (side1 == side2 || side2 == side3 || side3 == side1)
+    triangle? && sides.uniq.count <= 2
   end
 
   def scalene?
-    triangle? && (side1 != side2 && side2 != side3 && side3 != side1)
+    triangle? && sides.uniq.count == 3
   end
 
 end
