@@ -1,6 +1,6 @@
-class ResistorColorTrio
+﻿class ResistorColorTrio
 
-  BANDS = {   
+  BANDS = {
         black:   0,
         brown:   1,
         red:     2,
@@ -14,10 +14,10 @@ class ResistorColorTrio
   }
 
   private attr_writer :band1, :band2, :band3
-  
+
   def initialize(bands)
-    self.band1, 
-    self.band2, 
+    self.band1,
+    self.band2,
     self.band3 = bands.map { |band| BANDS[band.to_sym] }
   end
 
@@ -27,13 +27,14 @@ class ResistorColorTrio
 
   def label
     value = '%i%ie+%i' % [band1, band2, band3]
+    unit = 'ohms'
 
     if value.to_f > 1000
       value = value.to_f / 1000
-      'Resistor value: %g kiloohms' % value
-    else
-      'Resistor value: %g ohms' % value
+      unit = 'kiloohms'
     end
+
+    'Resistor value: %g %s' % [value, unit]
   end
 
 end
