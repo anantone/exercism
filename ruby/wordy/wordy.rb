@@ -1,6 +1,6 @@
 module WordProblemExceptions
   class QuestionError < ArgumentError
-    def initialize(message = "I don't understand the question")
+    def initialize(message = "The question should only involve the four basic arithmetic operations.")
       super
     end
   end
@@ -34,20 +34,24 @@ class WordProblem
   private_constant :RE
 
   def initialize(question)
-    self.question = question
+    if question.match(RE[:long])
+      self.expression = question.match(RE[:long])
+    elsif question.match(RE[:short])
+      self.expression = question.match(RE[:short])
+    else
+      self.expression = nil
+    end
   end
 
-  attr_accessor :question
+  attr_accessor :expression
 
   def answer
-    if question.match(RE[:long])
-      expression = question.match(RE[:long])
+    if expression == nil
+      raise QuestionError
+    elsif expression.length == 6  
       expression[:num1].to_i.send(OPERATION[expression[:op1]], expression[:num2].to_i).send(OPERATION[expression[:op2]], expression[:num3].to_i)
-    elsif question.match(RE[:short])
-      expression = question.match(RE[:short])
+    elsif expression.length == 4
       expression[:num1].to_i.send(OPERATION[expression[:op1]], expression[:num2].to_i)
-    else
-      raise QuestionError.new
     end
   end
 
