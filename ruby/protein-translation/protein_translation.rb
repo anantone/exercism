@@ -14,13 +14,13 @@ class Translation
   }
 
   def self.of_rna(strand)
-    codons = from_rna_strand_to_codons(strand)
+    codons = rna_to_codons(strand)
     codons = stop?(codons)
     validate_codons_data(strand, codons)
-    build_sequence_of_amino_acids(codons)
+    sequence_of_amino_acids(codons)
   end
 
-  def self.from_rna_strand_to_codons(strand)
+  def self.rna_to_codons(strand)
     # Get codons from RNA strand
     codons = []
     until strand.empty?
@@ -48,17 +48,17 @@ class Translation
     end
   end
 
-  def self.build_sequence_of_amino_acids(codons)
+  def self.sequence_of_amino_acids(codons)
     # For each element of the codons array, get the corresponding amino acid
     codons.map do |codon|
-      translate_codon_to_amino_acid(codon)[0]
+      codon_to_amino_acid(codon)[0]
     end
   end
 
-  def self.translate_codon_to_amino_acid(codon)
+  def self.codon_to_amino_acid(codon)
     # For each codon, return the corresponding amino acid
     AAC.filter_map do |key, aa|
-        key.to_s.capitalize! if aa.include?(codon)
+        key.to_s.capitalize if aa.include?(codon)
       end
   end
 
