@@ -1,21 +1,24 @@
 #include "darts.h"
+#include <array>
 
 namespace darts {
 
-const int inner_circle = 1;
-const int middle_circle = 5;
-const int outer_circle = 10;
+std::array<std::pair<double, int>, 3> scores = {{
+    {1, 10},
+    {5, 5},
+    {10, 1}
+}};
 
 int score(double x, double y) {
     double distance = hypot(x, y);
-    if (distance <= inner_circle) {
-        return 10;
+    if (distance <= scores[0].first) {
+        return scores[0].second;
     } 
-    if (distance <= middle_circle) {
-        return 5;
+    if (distance <= scores[1].first) {
+        return scores[1].second;
     } 
-    if (distance <= outer_circle) {
-        return 1;
+    if (distance <= scores[2].first) {
+        return scores[2].second;
     }
     return 0;
 }
