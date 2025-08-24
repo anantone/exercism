@@ -16,7 +16,7 @@ class Luhn
     (1..array.length).each do |i|
       if i % 2 == 0 
         double = array[-i].to_i * 2
-        double = double - 9 if double > 9
+        double -= 9 if double > 9
         new_array.push(double)
       else
         new_array.push(array[-i].to_i)
