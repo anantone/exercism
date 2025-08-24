@@ -1,13 +1,16 @@
 class Luhn
 
-  def self.valid?(number)
-    
-    number.gsub!(' ', '')
+  private
+  
+  def self.number_valid?(number)
     return false if number.length <= 1
     return false unless number.chars.all? do |n| 
       n.match(/\d/)
     end
+    return true
+  end
 
+  def self.luhn_calculation(number)
     new_array = Array.new
     array = number.split('')
     (1..array.length).each do |i|
@@ -19,9 +22,15 @@ class Luhn
         new_array.push(array[-i].to_i)
       end
     end
-
     new_array.sum % 10 == 0
+  end
+
+  public
   
+  def self.valid?(number)
+    number.gsub!(' ', '')
+    return false unless number_valid?(number)
+    luhn_calculation(number)
   end
 
 end
