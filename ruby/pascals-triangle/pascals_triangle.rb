@@ -1,29 +1,31 @@
 class Triangle
 
   def initialize(number)
-    self.number = number
+    unless number <= 0
+      self.number = number
+    else
+      raise ArgumentError
+    end
   end
 
   attr_accessor :number
 
   def rows
-
-    if number == 1
-      return [[1]]
+    
+    triangle = [[1]]
+    (0...number-1).each do |previous_row|
+      triangle = build_new_row(triangle, previous_row)
     end
+    triangle
+  end
 
-    count = 2
-    triangle = [[1], [1, 1]]
-
-    while count < number
-      b = [1]
-      (0...(triangle[count-1].length)-1).each do |i|
-        b.push(triangle[count-1][i] + triangle[count-1][i+1])
-      end
-      b.push(1)
-      triangle.push(b)
-      count += 1
+  def build_new_row(triangle, previous_row)
+    new_row = [1]
+    (0...triangle[previous_row].length-1).each do |i|
+      new_row.push(triangle[previous_row][i] + triangle[previous_row][i+1])
     end
+    new_row.push(1)
+    triangle.push(new_row)
     triangle
   end
   
