@@ -2,13 +2,13 @@ class Triangle
 
   def initialize(number)
     unless number <= 0
-      self.number = number
+      @number = number
     else
       raise ArgumentError
     end
   end
 
-  attr_accessor :number
+  attr_reader :number
 
   def rows
     triangle = [[1]]
