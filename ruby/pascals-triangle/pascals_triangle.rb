@@ -11,7 +11,6 @@ class Triangle
   attr_accessor :number
 
   def rows
-    
     triangle = [[1]]
     (0...number-1).each do |previous_row|
       triangle = build_new_row(triangle, previous_row)
