@@ -13,24 +13,21 @@ class SpaceAge
 }
 
   private_constant :ESPY
-
+  
   private
-
   attr_accessor :age_in_seconds
-
-  def method_missing(method_name, *args)
-    if respond_to_missing?(method_name)
-        return self.age_in_seconds / ESPY[method_name]
-    end
-    super
-  end
-
-  def respond_to_missing?(method_name, *args)
-    ESPY.include?(method_name)
-  end
 
   def initialize(age_in_seconds)
     self.age_in_seconds = age_in_seconds
+  end
+
+  def method_missing(method_name, *args)
+    return self.age_in_seconds / ESPY[method_name] if respond_to_missing?(method_name)
+    super
+  end
+
+  def respond_to_missing?(method_name, *args, &blk)
+    ESPY.include?(method_name)
   end
 
 end
