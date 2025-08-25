@@ -9,15 +9,16 @@ class Cipher
               :message
 
   def initialize(key = GENERATE_KEY.call)
-    raise ArgumentError if bad_key?(key)
-    self.key = key
+    self.key = bad_key?(key)
     self.shift = key.each_byte.map { |a| a - 97 }
     self.message = message
   end
 
   def bad_key?(key)
-    # Key must not be capitalized, numeric, or empty
-    /[[:upper:]]|^[0-9]+$|^$/.match(key)
+    # Key must not be numeric, or empty
+    raise ArgumentError if /^[0-9]+$|^$/.match(key)
+    # If uppercase, return in downcase
+    return key.downcase! if /[[:upper:]]/.match(key)
   end
 
   public
