@@ -9,15 +9,15 @@ class Cipher
               :message
 
   def initialize(key = GENERATE_KEY.call)
-    # Raise ArgumentError if key CAPS, numeric, or empty
-    if /[[:upper:]]|^[0-9]+$|^$/.match(key)
-      raise ArgumentError.new
-    end
+    raise ArgumentError if bad_key?(key)
     self.key = key
-    self.shift = key.each_byte.map do |a|
-        a - 97
-      end
+    self.shift = key.each_byte.map { |a| a - 97 }
     self.message = message
+  end
+
+  def bad_key?(key)
+    # Key must not be capitalized, numeric, or empty
+    /[[:upper:]]|^[0-9]+$|^$/.match(key)
   end
 
   public
@@ -54,7 +54,7 @@ class Cipher
 
   def decode(message)
     # Decoding, so shift is negative
-    shift = self.shift.map { |number| -number }
+    self.shift = shift.map(&:-@)
     # Decode
     code(message, shift)
   end
