@@ -7,7 +7,8 @@ class Triangle
   end
 
   def triangle?
-    sides.all? { |side| side > 0 } && sides.permutation(3).all? { |(a, b, c)| a <= b + c }
+    sides.all? { |side| side.positive? } && 
+      sides.permutation(3).all? { |(a, b, c)| a <= b + c }
   end
 
   def equilateral?
