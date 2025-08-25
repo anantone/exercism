@@ -28,7 +28,7 @@ class Cipher
 
   def code(message, shift)
     # Convert message to ASCII
-    ascii = message.bytes
+    ascii = message.codepoints
     # Apply shift to each ASCII code
     coded = ascii.each_with_index.map do |letter, index|
       letter + shift[index % shift.length]
@@ -36,11 +36,11 @@ class Cipher
     # Wrap around alphabet as needed
     coded.map! do |letter|
       if letter > 122
-        letter -= 26
+        letter - 26
       elsif letter < 97
-        letter += 26
+        letter + 26
       else
-        letter = letter
+        letter
       end
     end
     # Return from ASCII to plaintext
