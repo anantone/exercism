@@ -7,14 +7,10 @@ class Anagram
   attr_accessor :word
 
   def match(candidates)
-
-    candidates.select do |candidate|
-      dandicate = candidate.downcase
-      next if dandicate == word
-      dandicate.chars.sort!.join == word.chars.sort!.join
-    end
-      
-    
+    candidates.select do |candidate| 
+      candidate.downcase != word && 
+        candidate.downcase.chars.sort == word.chars.sort
+    end 
   end
 
 end
