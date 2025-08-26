@@ -3,7 +3,7 @@ class PrimeFactors
   def self.of(number)
     primes = []
     i = 2
-    while i <= number
+    while number > 1
       if is_prime?(i)
         if number % i == 0
           number = number / i
@@ -24,7 +24,7 @@ class PrimeFactors
         return false
       end
     end
-    true
+    return true
   end
   
 end
