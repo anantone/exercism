@@ -1,4 +1,5 @@
 module Chess
+  
   RANKS = 1..8
   FILES = 'A'..'H'
 
@@ -11,10 +12,10 @@ module Chess
   end
 
   def self.move_message(first_name, last_name, square)
-    if valid_square?(square[1].to_i, square[0])
-      "#{nick_name(first_name, last_name)} moved to #{square}"
-    else
-      "#{nick_name(first_name, last_name)} attempted to move to #{square}, but that is not a valid square"
-    end
+    valid_square?(square[1].to_i, square[0]) ?
+      "#{nick_name(first_name, last_name)} moved to #{square}" :
+      "#{nick_name(first_name, last_name)} attempted to move to \
+#{square}, but that is not a valid square"
   end
+  
 end
