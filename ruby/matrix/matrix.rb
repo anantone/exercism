@@ -5,7 +5,7 @@ class Matrix
   attr_writer :matrix
 
   def initialize(number_string)
-    self.matrix = number_string.split("\n").map do |array|
+    self.matrix = number_string.lines.map do |array|
       array.split(" ").map do |string|
         string.to_i
       end
