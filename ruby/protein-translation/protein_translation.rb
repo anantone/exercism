@@ -3,15 +3,17 @@ class InvalidCodonError < EncodingError; end
 class Translation
 
   AAC = AMINO_ACIDS_IN_CODONS = {
-      methionine: ['AUG'],
-      phenylalanine: ['UUU', 'UUC'],
-      leucine: ['UUA', 'UUG'],
-      serine: ['UCU', 'UCC', 'UCA', 'UCG'],
-      tyrosine: ['UAU', 'UAC'],
-      cysteine: ['UGU', 'UGC'],
-      tryptophan: ['UGG'],
-      stop: ['UAA', 'UAG', 'UGA']
+       methionine: ['AUG'],
+    phenylalanine: ['UUU', 'UUC'],
+          leucine: ['UUA', 'UUG'],
+           serine: ['UCU', 'UCC', 'UCA', 'UCG'],
+         tyrosine: ['UAU', 'UAC'],
+         cysteine: ['UGU', 'UGC'],
+       tryptophan: ['UGG'],
+             stop: ['UAA', 'UAG', 'UGA']
   }
+
+  private_constant :AAC
 
   def self.of_rna(strand)
     codons = rna_to_codons(strand)
@@ -31,11 +33,9 @@ class Translation
 
   def self.stop?(codons)
     # Shorten the codons array if "stop" is present
-    AAC.fetch(:stop).any? { |stop|
-      if codons.include?(stop)
-        codons.slice!(codons.index(stop)..-1)
+    AAC.fetch(:stop).any? do |stop|
+      codons.slice!(codons.index(stop)..-1) if codons.include?(stop)
       end
-    }
     codons
   end
 
