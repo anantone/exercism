@@ -1,66 +1,46 @@
-class Tournament
+module Tournament
+
+  HEADER = "Team                           | MP |  W |  D |  L |  P\n"
 
   def self.tally(input)
-    # Format header
-    header = "%-31s" % "Team"
-    header << "%s" % "| MP "
-    header << "%s" % "|  W "
-    header << "%s" % "|  D "
-    header << "%s" % "|  L "
-    header << "%s" % "|  P\n"
-    # Return empty table
-    if input == "\n"
-      return header
-    end
+    return HEADER if input == "\n"
     # Create results ledger
-    teams = {}
+    ledger = {}
     # Read the results
-    matches = input.split("\n")
+    matches = input.lines
     matches.each do |match|
-      result = match.split(';')
+      team1, team2, result = match.split(';')
       # Create teams if not exist
-      unless teams.keys.include?(result[0])
-        teams[result[0]] = [0, 0, 0, 0, 0]
-      end
-      unless teams.keys.include?(result[1])
-        teams[result[1]] = [0, 0, 0, 0, 0]
-      end
+      ledger[team1] = [0, 0, 0, 0, 0] unless ledger.keys.include?(team1)
+      ledger[team2] = [0, 0, 0, 0, 0] unless ledger.keys.include?(team2)
       # Apply the game's outcome
-      if result[2] == 'win'
-        teams[result[0]][0] += 1
-        teams[result[0]][1] += 1
-        teams[result[0]][4] += 3
-        teams[result[1]][0] += 1
-        teams[result[1]][3] += 1
-      elsif result[2] == 'draw'
-        teams[result[0]][0] += 1
-        teams[result[0]][2] += 1
-        teams[result[0]][4] += 1
-        teams[result[1]][0] += 1
-        teams[result[1]][2] += 1
-        teams[result[1]][4] += 1
-      elsif result[2] == 'loss'
-        teams[result[0]][0] += 1
-        teams[result[0]][3] += 1
-        teams[result[1]][0] += 1
-        teams[result[1]][1] += 1
-        teams[result[1]][4] += 3
+      ledger[team1][0] += 1
+      ledger[team2][0] += 1
+      if result == 'win'
+        ledger[team1][1] += 1
+        ledger[team1][4] += 3
+        ledger[team2][3] += 1
+      elsif result == 'draw'
+        ledger[team1][2] += 1
+        ledger[team1][4] += 1
+        ledger[team2][2] += 1
+        ledger[team2][4] += 1
+      elsif result == 'loss'
+        ledger[team1][3] += 1
+        ledger[team2][1] += 1
+        ledger[team2][4] += 3
       end
     end
     # Rank the teams by points, tiebreak alpha
-    rankings = teams.sort_by { |key, value| [-value[4], key] }
+    rankings = ledger.sort_by { |key, value| [-value[4], key] }
     # Build a string for each team's results
     results = ''
     rankings.each do |team, tally|
-      results << "%-31s" % team 
-      results << "| %2i " % tally[0]
-      results << "| %2i " % tally[1]
-      results << "| %2i " % tally[2] 
-      results << "| %2i " % tally[3] 
-      results << "| %2i\n" % tally[4]
+      results << "%-31s| %2i | %2i | %2i | %2i | %2i\n" % 
+[team, tally[0], tally[1], tally[2], tally[3], tally[4]]
     end
     # Display result table
-    header + results
+    HEADER + results
   end
 
 end
