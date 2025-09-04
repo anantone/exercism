@@ -1,11 +1,9 @@
 class Prime
 
   def self.nth(n, primes = [2])
-    if n == 0
-      raise ArgumentError.new
-    end
+    raise ArgumentError if n == 0
     i = 1 
-    while primes.length < n
+    until primes.length == n
       if is_prime?(primes[-1] + i)
         primes.push(primes[-1] + i)
         i = 1
