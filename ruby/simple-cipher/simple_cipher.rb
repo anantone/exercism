@@ -16,7 +16,7 @@ class Cipher
   end
 
   def bad_key?(key)
-    # Key must not be numeric, or empty
+    # Key must not be uppercase, numeric, or empty
     /[[:upper:]]|^[0-9]+$|^$/.match(key)
   end
 
