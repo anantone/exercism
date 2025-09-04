@@ -25,13 +25,12 @@ class ResistorColorTrio
 
   def label
     value = '%i%ie+%i' % [band1, band2, band3]
-
+    unit = 'ohms'
     if value.to_f > 1000
       value = value.to_f / 1000
-      'Resistor value: %g kiloohms' % value
-    else
-      'Resistor value: %g ohms' % value
+      unit = 'kiloohms'
     end
+    'Resistor value: %<value>g %<unit>s' % [value: value, unit: unit]
   end
 
 end
