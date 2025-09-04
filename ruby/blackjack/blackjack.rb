@@ -1,51 +1,50 @@
 module Blackjack
+
+  CARD_VALUES = {
+      ace: 11,
+     king: 10,
+    queen: 10,
+     jack: 10,
+      ten: 10,
+     nine:  9,
+    eight:  8,
+    seven:  7,
+      six:  6,
+     five:  5,
+     four:  4,
+    three:  3,
+      two:  2,
+    joker:  0
+  }
+
+  TWO_CARD_RANGES = {
+     (4..11) => 'low',
+    (12..16) => 'mid',
+    (17..20) => 'high',
+          21 => 'blackjack',
+          22 => '22'
+  }
+  
   def self.parse_card(card)
-    case card
-    when 'ace' then 11
-    when 'king', 'queen', 'jack', 'ten'
-      10
-    when 'nine' then 9
-    when 'eight' then 8
-    when 'seven' then 7
-    when 'six' then 6
-    when 'five' then 5
-    when 'four' then 4
-    when 'three' then 3
-    when 'two' then 2
-    else 
-      0
-    end
+    CARD_VALUES[card.to_sym]
   end
 
   def self.card_range(card1, card2)
-    case parse_card(card1) + parse_card(card2)
-    when (4..11) then 'low'
-    when (12..16) then 'mid'
-    when (17.. 20) then 'high'
-    when 21 then 'blackjack'
-    when 22 then '22'
-    end
+    TWO_CARD_RANGES.select do |value|
+      value === parse_card(card1) + parse_card(card2)
+    end.values.first
   end
 
   def self.first_turn(card1, card2, dealer_card)
-    case card_range(card1, card2)
-    when '22' then 'P'
-    when 'blackjack'
-      if parse_card(dealer_card) >= 10
-        'S'
-      else
-        'W'
-      end
-    when 'low'
+    if card_range(card1, card2) ==  '22'
+      'P'
+    elsif card_range(card1, card2) == 'blackjack' && parse_card(dealer_card) < 10
+      'W'
+    elsif (card_range(card1, card2) == 'mid' && parse_card(dealer_card) >= 7) || card_range(card1, card2) == 'low'
       'H'
-    when 'mid'
-      if parse_card(dealer_card) >= 7
-        'H'
-      else
-        'S'
-      end
-    when 'high'
+    else
       'S'
-    end
+    end   
   end
+  
 end
