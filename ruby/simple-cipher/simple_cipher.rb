@@ -9,16 +9,15 @@ class Cipher
               :message
 
   def initialize(key = GENERATE_KEY.call)
-    self.key = bad_key?(key)
+    raise ArgumentError if bad_key?(key)
+    self.key = key
     self.shift = key.each_byte.map { |a| a - 97 }
     self.message = message
   end
 
   def bad_key?(key)
     # Key must not be numeric, or empty
-    raise ArgumentError if /^[0-9]+$|^$/.match(key)
-    # If uppercase, return in downcase
-    return key.downcase! if /[[:upper:]]/.match(key)
+    /[[:upper:]]|^[0-9]+$|^$/.match(key)
   end
 
   public
@@ -28,9 +27,7 @@ class Cipher
               :message
 
   def code(message, shift)
-    # Convert message to ASCII
     ascii = message.codepoints
-    # Apply shift to each ASCII code
     coded = ascii.each_with_index.map do |letter, index|
       letter + shift[index % shift.length]
     end
@@ -44,19 +41,16 @@ class Cipher
         letter
       end
     end
-    # Return from ASCII to plaintext
     coded.map { |char| char.chr }.join
   end
 
   def encode(message)
-    # Encode
     code(message, shift)
   end
 
   def decode(message)
-    # Decoding, so shift is negative
+    # Shift is negative
     self.shift = shift.map(&:-@)
-    # Decode
     code(message, shift)
   end
 
