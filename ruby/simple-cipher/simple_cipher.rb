@@ -41,7 +41,7 @@ class Cipher
         letter
       end
     end
-    coded.map { |char| char.chr }.join
+    coded.map(&:chr).join
   end
 
   def encode(message)
