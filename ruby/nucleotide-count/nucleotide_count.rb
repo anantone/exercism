@@ -13,32 +13,11 @@ class Nucleotide
   end
 
   def count(letter)
-    count = 0
-    @strand.each_char do |char|
-      count += 1 if char == letter
-    end
-    count      
+    @strand.count(letter)
   end
 
   def histogram
-    histogram = {}
-    count_A, 
-    count_T, 
-    count_C, 
-    count_G = [0, 0, 0, 0]
-    unless @strand == ''
-      @strand.each_char do |char|
-        count_A += 1 if char == 'A'
-        count_T += 1 if char == 'T'
-        count_C += 1 if char == 'C'
-        count_G += 1 if char == 'G'
-      end
-    end
-    histogram['A'], 
-    histogram['T'], 
-    histogram['C'],
-    histogram['G'], = [count_A, count_T, count_C, count_G]
-    histogram
+    Hash['A' => count('A'), 'T' => count('T'), 'C' => count('C'), 'G' => count('G')]
   end
   
 end
