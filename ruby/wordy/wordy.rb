@@ -18,20 +18,21 @@ class WordProblem
 
   def initialize(question)
     self.expression = question[...-1].split.collect! do |word|
-      word unless word == "What" || word == "is" || word == "by" 
+      word unless word == 'What' || word == 'is' || word == 'by'
     end.compact!
   end
 
   attr_accessor :expression
 
   def answer
-    if expression.length == 3
-      expression[0].to_i.send(OPERATION[expression[1]], expression[2].to_i)
-    elsif expression.length == 5
-      expression[0].to_i.send(OPERATION[expression[1]], expression[2].to_i).send(OPERATION[expression[3]], expression[4].to_i)
-    else
+    begin
+      (1...expression.length).step(2).inject(expression[0].to_i) do |result, next_value|
+        result.send(OPERATION[expression[next_value]], expression[next_value + 1].to_i)
+      end
+    rescue
       raise QuestionError
     end
   end
 
 end
+
