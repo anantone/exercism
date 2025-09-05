@@ -34,4 +34,3 @@ class ResistorColorTrio
   end
 
 end
-
