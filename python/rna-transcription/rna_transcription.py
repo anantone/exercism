@@ -6,7 +6,4 @@ NUCLEOTIDES = {
 }
 
 def to_rna(dna_strand):
-    rna = ''
-    for char in dna_strand:    
-      rna += NUCLEOTIDES[char]
-    return rna
+  return dna_strand.translate(str.maketrans("GCTA", "CGAU"))
