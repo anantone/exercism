@@ -1,10 +1,8 @@
 module Acronym
-  def self.abbreviate(string)
-    string.gsub!(/-|_/, " ")
-    accro = ''
-    string.split.each do |word|
-      accro += word[0].upcase
+  def self.abbreviate(phrase)
+    words = phrase.gsub(/-|_/, " ")
+    words.split.each_with_object('') do |word, acronym| 
+      acronym << word[0].upcase
     end
-    accro
   end
 end
