@@ -1,45 +1,43 @@
-module RecordKeeping
-  @@used_names = []
-
-  def used_names
-    @@used_names
-  end
-end
-
 class Robot
-  extend RecordKeeping
 
-  attr_accessor :name, :name_set, :used_names
+  @@used_monikers = []
+  attr_accessor :moniker, :name_set
 
   def initialize
     @name_set = false
-    self.name = self.name
+    self.moniker = nil
+  end
+
+  def self.register
+    puts @@used_monikers
   end
 
   def name
     if @name_set == false
-      candidate_name = self.name_generation
-      while @@used_names.include?(candidate_name)
-        candidate_name = self.name_generation
+      candidate = moniker_generation
+      while @@used_monikers.include?(candidate)
+        candidate = moniker_generation
       end
-      new_name = candidate_name
-      @@used_names.push(new_name)
+      new_moniker = candidate
+      @@used_monikers.push(new_moniker)
       @name_set = true
-      new_name
+      self.moniker = new_moniker
     end
+    moniker
   end
 
-  def name_generation
-    "%s%3d" % [('AA'..'ZZ').to_a.sample, rand(1..999)]
+  def moniker_generation
+    "%s%3d" % [('AA'..'ZZ').to_a.sample, rand(100..999)]
   end
 
   def reset
     @name_set = false
+    self.moniker = nil
   end
 
   # Clear any shared state used to track robot names. Best if not used by solution
   def self.forget
-    @@used_names = []
+    @@used_monikers = []
   end
 
 end
