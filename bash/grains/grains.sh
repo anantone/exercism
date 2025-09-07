@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 
+TOTAL_GRAINS_ON_BOARD=18446744073709551615
+
 main () {
-    if [[ $1 > 0 && $1 < 65 ]]; then
-      echo $(echo "2^($1-1)" | bc)
-    elif [ $1 == "total" ]; then
-      sum=0
-      for ((i = 0 ; i < 64 ; i++)); do
-        sum=$(echo "$sum + 2 ^ $i" | bc)
-      done
-      echo "$sum"
+    if [ $1 == "total" ]; then
+      echo "$TOTAL_GRAINS_ON_BOARD"
+    elif [[ $1 > 0 && $1 < 65 ]]; then
+      echo $(bc <<< "2^($1-1)")
     else 
-      echo "Error: invalid input"
+      echo "Error: invalid input" >&2
       exit 1
     fi
 }
