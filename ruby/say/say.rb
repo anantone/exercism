@@ -117,10 +117,24 @@ class Say
   end
 
   def billions(number)
-    if number[0] == '1' 
-      'one billion'
-    else
-      hundreds(number[0, 3])+' billion '+millions(number[3, 9])
+    if number.length == 10
+      if number[1, 9] == '000000000' 
+        DIGITS.fetch(number[0].to_i)+' billion'
+      else
+        DIGITS.fetch(number[0].to_i)+' billion'+millions(number[1, 9])
+      end
+    elsif number.length == 11
+      if number[1, 10] == '0000000000'
+        TEENS.fetch(number[0, 2].to_i)+' billion'
+      else
+        TEENS.fetch(number[0, 2].to_i)+' billion'+millions(number[2, 9])
+      end
+    elsif number.length == 12
+      if number[1, 11] == '00000000000'
+        hundreds(number[0, 3])+' billion'
+      else
+        hundreds(number[0, 3])+' billion '+millions(number[3, 9])
+      end
     end
   end
 
