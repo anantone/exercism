@@ -3,11 +3,10 @@ module PerfectNumber
 
   def classify(number)
     raise RuntimeError.new if number <= 0
-    case 
-    when aliquot(number) == number then 'perfect'
-    when aliquot(number) < number then 'deficient'
-    else
-      'abundant'
+    case aliquot(number)
+    when number then 'perfect'
+    when ->(x) { x < number } then 'deficient'
+    else 'abundant' 
     end
   end
 
