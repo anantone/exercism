@@ -2,7 +2,7 @@ class InvalidCodonError < EncodingError; end
 
 class Translation
 
-  AAC = AMINO_ACIDS_IN_CODONS = {
+  CAA = CODONS_PER_AMINO_ACID = {
        methionine: ['AUG'],
     phenylalanine: ['UUU', 'UUC'],
           leucine: ['UUA', 'UUG'],
@@ -13,65 +13,56 @@ class Translation
              stop: ['UAA', 'UAG', 'UGA']
   }
 
-  private_constant :AAC
+  private_constant :CAA
 
-  def initialize(strand)
-    codons = rna_to_codons(strand)
-    codons = stop?(codons)
-    validate_codons_data(strand, codons)
-    self.rna = sequence_of_amino_acids(codons)
+  def self.of_rna(strand)
+    new(strand).protein
   end
 
   private
 
-  attr_writer :rna
+  attr_writer :protein
 
-  def rna_to_codons(strand)
-    # Get codons from RNA strand
-    codons = []
-    until strand.empty?
-      codons << strand.slice!(0..2)
-    end
-    codons
+  def initialize(strand)
+    triplets = slice_rna(strand)
+    trim = until_stop(triplets)
+    codons = validate(trim)
+    raise InvalidCodonError unless codons == trim
+    self.protein = sequence_of_amino_acids(codons)
   end
 
-  def stop?(codons)
-    # Shorten the codons array if "stop" is present
-    AAC.fetch(:stop).any? do |stop|
-      codons.slice!(codons.index(stop)..-1) if codons.include?(stop)
-      end
-    codons
+  def slice_rna(strand)
+    strand.chars.each_slice(3).map { |triplet| triplet.join }
   end
 
-  def validate_codons_data(strand, codons)
-    # Validate strand length and codons content
-    unless strand.length % 3 == 0 && codons.all? do
-      |codon| AAC.values.flatten.include?(codon)
-        end
-      raise InvalidCodonError.new
+  def until_stop(triplets)
+    triplets.take_while { |triplet| !CAA[:stop].include?(triplet) }
+  end
+
+  def validate(triplets)
+    triplets.select do |triplet| 
+      CAA.values.flatten.include?(triplet)
     end
   end
 
   def sequence_of_amino_acids(codons)
-    # For each element of the codons array, get the corresponding amino acid
     codons.map do |codon|
-      codon_to_amino_acid(codon)[0]
-    end
-  end
-
-  def codon_to_amino_acid(codon)
-    # For each codon, return the corresponding amino acid
-    AAC.filter_map do |key, aa|
-        key.to_s.capitalize if aa.include?(codon)
+      CAA.filter_map do |amino_acid, codons|
+        amino_acid.to_s.capitalize if codons.include?(codon)
       end
+    end.flatten
   end
 
   public
 
-  attr_reader :rna
-
-  def self.of_rna(strand)
-    new(strand).rna
-  end
+  attr_reader :protein
 
 end
+
+if $PROGRAM_NAME == __FILE__
+  my_strand = 'UUCUUCUAAUGG'
+  puts 'My strand is %s, I will need this later.' % my_strand
+  puts Translation.of_rna(my_strand)
+  puts 'Here is my strand for the next person to work on: %p' % my_strand
+end
+
