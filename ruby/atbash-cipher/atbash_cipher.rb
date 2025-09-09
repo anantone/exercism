@@ -7,10 +7,9 @@ module Atbash
   def encode(message)
     data = message.downcase
     code = data.each_char.with_object('') do |char, code|
-      if char.match(/\W/)
-        next
-      elsif char.match(/\d/)
-        code << char
+      case char
+      when /\W/ then next
+      when /\d/ then code << char
       else
         code << TEBAHPLA[ALPHABET.index(char)]
       end
@@ -30,10 +29,9 @@ module Atbash
 
   def decode(message)
     result = message.each_char.with_object('') do |char, result|
-      if char.match(/\s/)
-        next
-      elsif char.match(/\d/)
-        result << char
+      case char
+      when /\s/ then next
+      when /\d/ then result << char
       else
         result << ALPHABET[TEBAHPLA.index(char)]
       end
