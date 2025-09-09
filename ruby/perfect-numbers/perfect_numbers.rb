@@ -1,24 +1,20 @@
 module PerfectNumber
+  extend self
 
-  def self.classify(number)
+  def classify(number)
     raise RuntimeError.new if number <= 0
-    if aliquot(number) == number
-      'perfect'
-    elsif aliquot(number) < number
-      'deficient'
+    case 
+    when aliquot(number) == number then 'perfect'
+    when aliquot(number) < number then 'deficient'
     else
       'abundant'
     end
   end
 
-  def self.aliquot(number)
-    factors = [1]
-    (2...number).each do |divisor|
-      if number % divisor == 0
-        factors.push(divisor)
-      end
-    end
-    factors.sum
+  def aliquot(number)
+    factors = (2...number).each.with_object([1]) do |divisor, factors|
+      factors.push(divisor) if number % divisor == 0
+    end.sum
   end
 
 end
