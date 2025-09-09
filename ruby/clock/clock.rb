@@ -9,22 +9,15 @@ class Clock
 
     self.hour = hour.modulo(HOURS_PER_DAY)
     self.minute = minute
-    unless self.hour
-      self.hour = 00
-    end
-    unless self.minute
-      self.minute = 00
-    end
-    # Convert minutes into hours and process
+    self.hour = 00 unless self.hour
+    self.minute = 00 unless self.minute
     if self.minute >= MINUTES_PER_HOUR || self.minute < 0
       self.hour += self.minute / MINUTES_PER_HOUR
       self.minute = self.minute % MINUTES_PER_HOUR
     end
-    # Convert hours into days
     if self.hour >= HOURS_PER_DAY || self.hour <= -HOURS_PER_DAY
       self.hour = self.hour % HOURS_PER_DAY
     end
-    # Process negative hours
     if self.hour < 0
       self.hour += HOURS_PER_DAY
     end
@@ -47,3 +40,4 @@ class Clock
   end
 
 end
+
