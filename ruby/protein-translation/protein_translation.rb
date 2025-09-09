@@ -3,22 +3,22 @@ class InvalidCodonError < EncodingError; end
 class Translation
 
   CAA = CODONS_PER_AMINO_ACID = {
-       methionine: ['AUG'],
-    phenylalanine: ['UUU', 'UUC'],
-          leucine: ['UUA', 'UUG'],
-           serine: ['UCU', 'UCC', 'UCA', 'UCG'],
-         tyrosine: ['UAU', 'UAC'],
-         cysteine: ['UGU', 'UGC'],
-       tryptophan: ['UGG'],
-             stop: ['UAA', 'UAG', 'UGA']
+       'Methionine' => ['AUG'],
+    'Phenylalanine' => ['UUU', 'UUC'],
+          'Leucine' => ['UUA', 'UUG'],
+           'Serine' => ['UCU', 'UCC', 'UCA', 'UCG'],
+         'Tyrosine' => ['UAU', 'UAC'],
+         'Cysteine' => ['UGU', 'UGC'],
+       'Tryptophan' => ['UGG'],
+             'stop' => ['UAA', 'UAG', 'UGA']
   }
 
   private_constant :CAA
 
   def self.of_rna(strand)
-    new(strand).protein
+    new(strand).to_s
   end
-
+  
   private
 
   attr_writer :protein
@@ -28,7 +28,9 @@ class Translation
     trim = until_stop(triplets)
     codons = validate(trim)
     raise InvalidCodonError unless codons == trim
-    self.protein = sequence_of_amino_acids(codons)
+    self.protein = codons.map do |codon|
+      translate(codon)
+    end
   end
 
   def slice_rna(strand)
@@ -36,7 +38,7 @@ class Translation
   end
 
   def until_stop(triplets)
-    triplets.take_while { |triplet| !CAA[:stop].include?(triplet) }
+    triplets.take_while { |triplet| !CAA['stop'].include?(triplet) }
   end
 
   def validate(triplets)
@@ -45,17 +47,17 @@ class Translation
     end
   end
 
-  def sequence_of_amino_acids(codons)
-    codons.map do |codon|
-      CAA.filter_map do |amino_acid, codons|
-        amino_acid.to_s.capitalize if codons.include?(codon)
-      end
-    end.flatten
+  def translate(codon)
+    CAA.each_pair do |amino_acid, matches|
+      return amino_acid if matches.include?(codon)
+    end
   end
 
   public
 
   attr_reader :protein
+  
+  alias to_s protein
 
 end
 
