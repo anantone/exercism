@@ -1,5 +1,17 @@
 class Scrabble
 
+  LPV = LETTERS_POINT_VALUE = {
+     1 => 'aeioulnrst',
+     2 =>         'dg',
+     3 =>       'bcmp',
+     4 =>      'fhvwy',
+     5 =>          'k',
+     8 =>         'jx',
+    10 =>         'qz'
+  }
+
+  private_constant :LPV
+  
   def initialize(word)
     self.word = word
   end
@@ -8,19 +20,13 @@ class Scrabble
 
   def score
     score = 0
-    word.each_char { |c| score += value(c.downcase) }
+    word.each_char { |letter| score += value(letter.downcase) }
     score
   end
 
   def value(letter)
-    case letter
-    when ->(x) { 'aeioulnrst'.include?(x) } then 1
-    when ->(x) { 'dg'.include?(x) }         then 2
-    when ->(x) { 'bcmp'.include?(x) }       then 3
-    when ->(x) { 'fhvwy'.include?(x) }      then 4
-    when       'k'                          then 5
-    when ->(x) { 'jx'.include?(x) }         then 8
-    when ->(x) { 'qz'.include?(x) }         then 10
+    LPV.each_pair do |points, letters|
+      return points if letters.include?(letter)
     end
   end
   
