@@ -10,8 +10,7 @@ module Atbash
       case char
       when /\W/ then next
       when /\d/ then code << char
-      else
-        code << TEBAHPLA[ALPHABET.index(char)]
+      else code << TEBAHPLA[ALPHABET.index(char)]
       end
     end
   insert_spaces(code, 5)
@@ -32,8 +31,7 @@ module Atbash
       case char
       when /\s/ then next
       when /\d/ then result << char
-      else
-        result << ALPHABET[TEBAHPLA.index(char)]
+      else result << ALPHABET[TEBAHPLA.index(char)]
       end
     end
     result
