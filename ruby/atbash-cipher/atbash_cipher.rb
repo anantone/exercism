@@ -1,50 +1,43 @@
-class Atbash
+module Atbash
+  extend self
+
   ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
   TEBAHPLA = 'zyxwvutsrqponmlkjihgfedcba'
   
-  def self.encode(message)
-    code = ''
-    # Downcase everything
+  def encode(message)
     data = message.downcase
-    # Iterate over characters
-    data.each_char do |char|
-      # Get rid of punctuation and space
+    code = data.each_char.with_object('') do |char, code|
       if char.match(/\W/)
         next
-      # Transcode numbers
       elsif char.match(/\d/)
         code << char
       else
-      # Reverse using index
         code << TEBAHPLA[ALPHABET.index(char)]
       end
     end
-    # Insert spaces every 5 char
-    if code.length / 5 > 0
-      (1..code.length/5).each do |n|
-        code.insert(-1 + n*6, ' ')
-      end
-    code.rstrip!
-    end
-    # Return encoded message
-    code
+  insert_spaces(code, 5)
   end
 
-  def self.decode(message)
-    result = ''
-    message.each_char do |char|
-      # Skip white space
+  def insert_spaces(string, x)
+  # Insert spaces every x char
+    if string.length / x > 0
+      (1..string.length/x).each do |n|
+        string.insert(-1 + n*(x+1), ' ')
+      end
+    end
+    string.rstrip
+  end
+
+  def decode(message)
+    result = message.each_char.with_object('') do |char, result|
       if char.match(/\s/)
         next
-      # Transcode numbers
       elsif char.match(/\d/)
         result << char
-      # Reverse using index
       else
         result << ALPHABET[TEBAHPLA.index(char)]
       end
     end
-    # Return decoded message
     result
   end
   
