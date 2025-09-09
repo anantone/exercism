@@ -19,9 +19,9 @@ class Scrabble
   attr_accessor :word
 
   def score
-    score = 0
-    word.each_char { |letter| score += value(letter.downcase) }
-    score
+    word.each_char.with_object([]) do |letter, score| 
+      score.push(value(letter.downcase)) 
+    end.sum
   end
 
   def value(letter)
