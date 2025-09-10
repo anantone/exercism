@@ -3,14 +3,14 @@ class InvalidCodonError < EncodingError; end
 class Translation
 
   CAA = CODONS_PER_AMINO_ACID = {
-       'Methionine' => ['AUG'],
-    'Phenylalanine' => ['UUU', 'UUC'],
-          'Leucine' => ['UUA', 'UUG'],
-           'Serine' => ['UCU', 'UCC', 'UCA', 'UCG'],
-         'Tyrosine' => ['UAU', 'UAC'],
-         'Cysteine' => ['UGU', 'UGC'],
-       'Tryptophan' => ['UGG'],
-             'stop' => ['UAA', 'UAG', 'UGA']
+       Methionine: ['AUG'],
+    Phenylalanine: ['UUU', 'UUC'],
+          Leucine: ['UUA', 'UUG'],
+           Serine: ['UCU', 'UCC', 'UCA', 'UCG'],
+         Tyrosine: ['UAU', 'UAC'],
+         Cysteine: ['UGU', 'UGC'],
+       Tryptophan: ['UGG'],
+             stop: ['UAA', 'UAG', 'UGA']
   }
 
   private_constant :CAA
@@ -38,25 +38,25 @@ class Translation
   end
 
   def until_stop(triplets)
-    triplets.take_while { |triplet| !CAA['stop'].include?(triplet) }
+    triplets.take_while { |triplet| !CAA[:stop].include?(triplet) }
   end
 
   def validate(triplets)
-    triplets.select do |triplet| 
+    triplets.select do |triplet|
       CAA.values.flatten.include?(triplet)
     end
   end
 
   def translate(codon)
     CAA.each_pair do |amino_acid, matches|
-      return amino_acid if matches.include?(codon)
+      return amino_acid.to_s if matches.include?(codon)
     end
   end
 
   public
 
   attr_reader :protein
-  
+
   alias to_s protein
 
 end
