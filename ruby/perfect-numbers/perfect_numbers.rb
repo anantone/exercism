@@ -11,7 +11,7 @@ module PerfectNumber
   end
 
   def aliquot(number)
-    (1...number).select { |divisor| (number % divisor).zero? }.sum
+    (1..number / 2).select { |divisor| (number % divisor).zero? }.sum
   end
 
 end
