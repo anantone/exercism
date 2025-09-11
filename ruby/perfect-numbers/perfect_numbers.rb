@@ -4,9 +4,9 @@ module PerfectNumber
   def classify(number)
     raise RuntimeError if number <= 0
     case aliquot(number)
-    when number then 'perfect'
-    when ->(x) { x < number } then 'deficient'
-    else 'abundant' 
+      when number then 'perfect'
+      when ->(x) { x < number } then 'deficient'
+      else 'abundant' 
     end
   end
 
