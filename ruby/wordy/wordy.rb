@@ -1,6 +1,6 @@
 module WordProblemExceptions
   class QuestionError < ArgumentError
-    def initialize(message = "The question should only involve the four basic arithmetic operations.")
+    def initialize(message = "The question must only involve the four basic arithmetic operations.")
       super
     end
   end
@@ -16,22 +16,24 @@ class WordProblem
     'divided'       => :/
 }
 
+  private
+
+  attr_writer :expression
+
   def initialize(question)
-    self.expression = question[...-1].split.collect! do |word|
-      word if word.match(/-?\d+/) || OPERATION.keys.include?(word)
-    end.compact!
+    self.expression = question[...-1].split.keep_if do |word|
+      word.match(/-?\d+/) || OPERATION.keys.include?(word)
+    end
   end
 
-  attr_accessor :expression
+  public
+
+  attr_reader :expression
 
   def answer
     raise QuestionError if expression.length < 3
-    begin
-      (1...expression.length).step(2).inject(expression[0].to_f) do |result, next_value|
-        result.send(OPERATION[expression[next_value]], expression[next_value + 1].to_f)
-      end
-    rescue
-      raise QuestionError
+    (1...expression.length).step(2).inject(expression[0].to_f) do |result, next_value|
+      result.send(OPERATION[expression[next_value]], expression[next_value + 1].to_f)
     end
   end
 
