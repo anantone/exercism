@@ -1,24 +1,18 @@
 class RotationalCipher
-  ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+
+  UPPER_CASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
 
   def self.rotate(message, key)
-    code = ''
-    message.each_char do |char|
-      # Copy punctuation, spaces, numbers
+    code = message.each_char.with_object('') do |char, code|
       if char.match(/\W|\d/)
         code << char
-      # Capital letters remain capital
-      elsif char.match(/[A-Z]/)
-        char.downcase!
-        switch = ALPHABET[(ALPHABET.index(char) + key) % 26]
-        switch.upcase!
-        code << switch
-      # Default is lower case
       else
-        code << ALPHABET[(ALPHABET.index(char) + key) % 26]
+        alphabet = char.match(/[A-Z]/) ? UPPER_CASE : LOWER_CASE
+        code << alphabet[(alphabet.index(char) + key) % 26]
       end
     end
-    return code
+    code
   end
 
 end
