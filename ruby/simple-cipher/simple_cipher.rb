@@ -1,6 +1,15 @@
 class Cipher
 
-  GENERATE_KEY = ->() { (0...100).map { (97 + rand(26)).chr }.join }
+  ASCII = {
+    a: 97,
+    z: 122
+  }
+
+  GENERATE_KEY = lambda do 
+    (0...100).each_with_object('') do |_, letter|
+      letter << (rand ASCII[:a]..ASCII[:z]).chr 
+    end
+  end
 
   private
 
