@@ -1,6 +1,6 @@
 class InvalidCodonError < EncodingError
-  def initialize(message='There is at least one invalid codon in your strand.' \
-                ' You should check for typos. If none, maybe you are looking ' \
+  def initialize(message='There is at least one invalid codon in your strand. ' \
+                'You should check for typos. If none, maybe you are looking ' \
                 'at DNA instead??')
     super
   end
@@ -66,4 +66,3 @@ class Translation
   alias to_s protein
 
 end
-
