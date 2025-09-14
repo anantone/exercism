@@ -1,5 +1,7 @@
 class InvalidCodonError < EncodingError
-  def initialize(msg="There is at least one invalid codon in your strand. You should check for typos. If none, maybe you are looking at DNA instead??")
+  def initialize(message='There is at least one invalid codon in your strand.' \
+                ' You should check for typos. If none, maybe you are looking ' \
+                'at DNA instead??')
     super
   end
 end
@@ -63,12 +65,5 @@ class Translation
 
   alias to_s protein
 
-end
-
-if $PROGRAM_NAME == __FILE__
-  my_strand = 'UUCUUUCUAAUGG'
-  puts 'My strand is %s, I will need this later.' % my_strand
-  puts Translation.of_rna(my_strand)
-  puts 'Here is my strand for the next person to work on: %p' % my_strand
 end
 
