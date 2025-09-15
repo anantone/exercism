@@ -1,7 +1,7 @@
 class InvalidCodonError < EncodingError
-  def initialize(message='There is at least one invalid codon in your strand. ' \
-                'You should check for typos. If none, maybe you are looking ' \
-                'at DNA instead??')
+  def initialize(message='There is at least one invalid codon in your ' \
+                         'strand. You should check for typos. If none, ' \
+                         'maybe you are looking at DNA instead??')
     super
   end
 end
@@ -21,6 +21,10 @@ class Translation
 
   private_constant :CAA
 
+  attr_reader :protein
+
+  alias to_s protein
+
   def self.of_rna(strand)
     new(strand).to_s
   end
@@ -31,9 +35,9 @@ class Translation
 
   def initialize(strand)
     triplets = slice_rna(strand)
-    trim = until_stop(triplets)
-    codons = validate(trim)
-    raise InvalidCodonError unless codons == trim
+    no_stop = if_stop_trim(triplets)
+    codons = validate(no_stop)
+    raise InvalidCodonError unless codons == no_stop
     self.protein = codons.map do |codon|
       translate(codon)
     end
@@ -43,7 +47,7 @@ class Translation
     strand.chars.each_slice(3).map { |triplet| triplet.join }
   end
 
-  def until_stop(triplets)
+  def if_stop_trim(triplets)
     triplets.take_while { |triplet| !CAA[:stop].include?(triplet) }
   end
 
@@ -59,10 +63,17 @@ class Translation
     end
   end
 
-  public
+end
 
-  attr_reader :protein
 
-  alias to_s protein
-
+if $PROGRAM_NAME == __FILE__
+  my_strand = 'UUCUUUCUAAUGG'
+  puts 'My strand is %s, I will need this later.' % my_strand
+  begin
+    puts Translation.of_rna(my_strand)
+  rescue InvalidCodonError => e
+    puts 'Exception (%s):' % e.class,
+      e.message, 'but I will let it slide this time'
+    puts 'Here is my strand for the next person to work on: %p' % my_strand
+  end
 end
