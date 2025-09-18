@@ -51,7 +51,7 @@ def remove_item(inventory, item):
         if inventory[item] >= 0:
             inventory.pop(item)
     except KeyError: 
-         pass
+        pass
     return inventory
 
 
@@ -61,8 +61,8 @@ def list_inventory(inventory):
     :param inventory: dict - an inventory dictionary.
     :return: list of tuples - list of key, value pairs from the inventory dictionary.
     """
-    list = []
+    available_items = []
     for item, count in inventory.items():
         if inventory[item] > 0:
-            list.append((item, count))
-    return list
+            available_items.append((item, count))
+    return available_items
