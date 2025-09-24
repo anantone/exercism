@@ -12,7 +12,6 @@ class Say
   attr_accessor :number
 
   def in_english
-    return if number == ''
     case number.to_i
     when (0..9)
       DIGITS.fetch(number.to_i)
