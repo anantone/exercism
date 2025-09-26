@@ -1,9 +1,6 @@
 import re
 
-def abbreviate(words):
-    acronym = ''
-    clean_words = re.sub(r'[^a-zA-Z]', ' ', words)
-    for word in clean_words.split():
-        if word == 's': continue
-        acronym += word[0].upper()
-    return acronym
+def abbreviate(string):
+    apostrophe_squeeze = re.sub(r'[\']', '', string)
+    alpha_only = re.sub(r'[^a-zA-Z]', ' ', apostrophe_squeeze)
+    return ''.join([word[0].upper() for word in alpha_only.split()])
