@@ -5,6 +5,6 @@ module Anagram
     entries.select do |entry|
       entry_d = entry.downcase
       entry_d != word_d && entry_d.chars.sort! == dorw
-    end 
+    end
   end
 end
