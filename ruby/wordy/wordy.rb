@@ -1,6 +1,6 @@
 module WordProblemExceptions
   class QuestionError < ArgumentError
-    def initialize(message = "The question must only involve the four basic arithmetic operations.")
+    def initialize(message = "The calculation part of the question must be formatted as: '{NUMBER} ({OPERATION} {NUMBER})?' where NUMBER is in numeric (non word) form, and OPERATION is (currently) one of the four basic arithmetic operations. The pattern between parentheses may be repeated.")
       super
     end
   end
@@ -14,7 +14,7 @@ class WordProblem
     'minus'         => :-,
     'multiplied'    => :*,
     'divided'       => :/
-}
+  }
 
   private
 
