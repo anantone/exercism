@@ -3,11 +3,11 @@ module Grep
   def self.grep(pattern, flags, files)
     result = []
 
-    case_insensitive = flags.include?('-i') ? true : false
-      file_name_only = flags.include?('-l') ? true : false
-             reverse = flags.include?('-v') ? true : false
-           full_line = flags.include?('-x') ? true : false
-        line_numbers = flags.include?('-n') ? true : false
+    case_insensitive = flags.include?('-i')
+      file_name_only = flags.include?('-l')
+             reverse = flags.include?('-v')
+           full_line = flags.include?('-x')
+        line_numbers = flags.include?('-n')
 
     match_count = 0
     added_files = []
@@ -15,7 +15,8 @@ module Grep
     files.each do |file|
       line_count = 1
       File.read(file).each_line do |line|
-        if reverse ? !matches?(line, pattern, full_line, case_insensitive) : matches?(line, pattern, full_line, case_insensitive)
+        test = matches?(line, pattern, full_line, case_insensitive)
+        if reverse ? !test : test
           match_count += 1
           if file_name_only
             unless added_files.include?(file)
@@ -42,9 +43,9 @@ module Grep
       line = line.downcase
     end
     if full_line
-      line.chomp == pattern ? true : false
+      line.chomp == pattern
     else
-      line.include?(pattern) ? true : false
+      line.include?(pattern)
     end
   end
 
