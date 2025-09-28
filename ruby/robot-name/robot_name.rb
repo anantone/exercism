@@ -1,8 +1,7 @@
 class Robot
 
-  LETTERS = ('AA'..'ZZ').to_a
-  NUMBERS = (0..999).to_a
-  MAX_NAMES = LETTERS.length * NUMBERS.length
+  NAMES = ('AA000'..'ZZ999').to_a.shuffle
+  MAX_NAMES = NAMES.length 
 
   @@name_count = 0
 
@@ -11,9 +10,7 @@ class Robot
   attr_writer :name
 
   def initialize
-    self.name = "%<letters>s%<numbers>03d" %
-     {letters: LETTERS[@@name_count / 1000],
-     numbers: NUMBERS[@@name_count % 1000]}
+    self.name = NAMES[@@name_count]
     @@name_count += 1
     Robot.forget if @@name_count == MAX_NAMES
   end
