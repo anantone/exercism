@@ -16,14 +16,22 @@ class Palindromes
 
   def generate
     self.palindromes = range.repeated_combination(2).with_object([]) do |combi, products|
-      if is_palindrome?((combi[0] * combi[1]).to_s)
+      if is_palindrome?((combi[0] * combi[1]))
         products.push([combi[0] * combi[1], [combi[0], combi[1]]])
       end
     end
   end
 
-  def is_palindrome?(string)
-    string == string.reverse
+  def is_palindrome?(x)
+    return false if x < 0 || (x % 10 == 0 && x != 0)
+
+    reverted_number = 0
+    while x > reverted_number
+      reverted_number = reverted_number * 10 + x % 10
+      x /= 10
+    end
+
+    x == reverted_number || x == reverted_number / 10
   end
 
   def smallest
@@ -59,3 +67,10 @@ class Array
 
 end
 
+if __FILE__ == $PROGRAM_NAME
+
+  a = Palindromes.new(max_factor: 12)
+  a.generate
+  puts a.largest.factors
+
+end
