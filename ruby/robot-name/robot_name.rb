@@ -12,9 +12,7 @@ class Robot
   attr_accessor :name
 
   def initialize
-    Robot.forget unless @@name_count
     self.name = NAMES[@@name_count] and @@name_count += 1
-    Robot.forget if @@name_count == MAX_NAMES
   end
 
   alias reset initialize
