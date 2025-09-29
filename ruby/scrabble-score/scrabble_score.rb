@@ -11,23 +11,29 @@ class Scrabble
   }
 
   private_constant :LPV
+
+  private
+
+  attr_writer :word
   
   def initialize(word)
     self.word = word
-  end
-
-  attr_accessor :word
-
-  def score
-    word.each_char.with_object([]) do |letter, score| 
-      score.push(value(letter.downcase)) 
-    end.sum
   end
 
   def value(letter)
     LPV.each_pair do |points, letters|
       return points if letters.include?(letter)
     end
+  end
+
+  public
+
+  attr_reader :word
+  
+  def score
+    word.each_char.with_object([]) do |letter, score| 
+      score.push(value(letter.downcase)) 
+    end.sum
   end
   
 end
