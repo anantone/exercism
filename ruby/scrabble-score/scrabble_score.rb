@@ -1,5 +1,11 @@
 class Scrabble
 
+  class TileError < ArgumentError
+    def initialize(message='Where did you find that tile?')
+      super
+    end
+  end
+
   TILESET = {
     English: {
       A:  1,  N:  1,
@@ -39,11 +45,14 @@ class Scrabble
 
   attr_writer :tile_values
 
-  def initialize(tiles, set)
+  def initialize(tiles, set = 'English')
     self.tile_values = tiles.chars.map { |tile| value(tile.upcase, set) }
   end
 
   def value(letter, set)
+    unless TILESET.has_key?(letter)
+      raise TileError
+    end
     TILESET[set.to_sym][letter.to_sym]
   end
 
@@ -60,7 +69,7 @@ end
 if __FILE__ == $PROGRAM_NAME
   puts "SCRABBLE (EN) / SCRABBLE (FR)"
   puts
-  puts "\"Muzjiks\" in English:   %d" % Scrabble.new('Muzjiks', 'English').score
+  puts "\"Muzjiks\" in English:   %d" % Scrabble.new('Mu%zjiks', 'English').score
   puts "\"Moujiks\" en français : %d" % Scrabble.new('Moujiks', 'français').score
   puts "\"Muzji s\" in English:   %d" % Scrabble.new('Muzji s', 'English').score
   puts "\"Mouji s\" en français : %d" % Scrabble.new('Mouji s', 'français').score
