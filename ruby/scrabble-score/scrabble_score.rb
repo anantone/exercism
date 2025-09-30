@@ -17,7 +17,7 @@ class Scrabble
       M:  3,  Z: 10,
           " ": 0
     },
-    French: {
+    français: {
       A:  1,  N:  1,
       B:  3,  O:  1,
       C:  3,  P:  3,
@@ -58,14 +58,15 @@ class Scrabble
 end
 
 if __FILE__ == $PROGRAM_NAME
+  puts "SCRABBLE (EN) / SCRABBLE (FR)"
   puts
-  puts "\"Muzjiks\" in English: %d" % Scrabble.new('Muzjiks', 'English').score
-  puts "\"Moujiks\" in French:  %d" % Scrabble.new('Moujiks', 'French').score
-  puts "\"Muzji s\" in English: %d" % Scrabble.new('Muzji s', 'English').score
-  puts "\"Mouji s\" in French:  %d" % Scrabble.new('Mouji s', 'French').score
+  puts "\"Muzjiks\" in English:   %d" % Scrabble.new('Muzjiks', 'English').score
+  puts "\"Moujiks\" en français : %d" % Scrabble.new('Moujiks', 'français').score
+  puts "\"Muzji s\" in English:   %d" % Scrabble.new('Muzji s', 'English').score
+  puts "\"Mouji s\" en français : %d" % Scrabble.new('Mouji s', 'français').score
   puts
-  puts "\"Jukebox\" in English: %d" % Scrabble.new('Jukebox', 'English').score
-  puts "\"Jukebox\" in French:  %d" % Scrabble.new('Jukebox', 'French').score
-  puts "\"Ju ebox\" in English: %d" % Scrabble.new('Ju ebox', 'English').score
-  puts "\"Ju ebox\" in French:  %d" % Scrabble.new('Ju ebox', 'French').score
+  puts "\"Jukebox\" in English:   %d" % Scrabble.new('Jukebox', 'English').score
+  puts "\"Jukebox\" en français : %d" % Scrabble.new('Jukebox', 'français').score
+  puts "\"Ju ebox\" in English:   %d" % Scrabble.new('Ju ebox', 'English').score
+  puts "\"Ju ebox\" en français : %d" % Scrabble.new('Ju ebox', 'français').score
 end
