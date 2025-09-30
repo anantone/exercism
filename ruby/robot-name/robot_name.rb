@@ -9,6 +9,8 @@ class Robot
     @@name_count = 0
   end
 
+  @@name_count = 0
+
   attr_accessor :name
 
   def initialize
@@ -20,5 +22,9 @@ class Robot
 
   public :reset, :name
 
+end
+
+if $PROGRAM_NAME == __FILE__
+  puts Robot.new.name
 end
 
