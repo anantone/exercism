@@ -9,17 +9,7 @@ class Yacht
   end
 
   def count(roll)
-    roll.each_with_object({1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0}) do
-      |value, ledger|
-      case value
-      when 1 then ledger[1] +=1
-      when 2 then ledger[2] +=1
-      when 3 then ledger[3] +=1
-      when 4 then ledger[4] +=1
-      when 5 then ledger[5] +=1
-      when 6 then ledger[6] +=1
-      end
-    end
+    roll.tally({1 => 0, 2 => 0, 3=> 0 , 4 => 0, 5 => 0, 6 => 0})
   end
 
   def yacht(count)
