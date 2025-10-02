@@ -11,11 +11,11 @@ class Yacht
   end
 
   def yacht
-    tally.any? { |side, times_rolled| times_rolled == 5 } ? 50 : 0
+    tally.any? { |number, times_rolled| times_rolled == 5 } ? 50 : 0
   end
 
   def choice
-    tally.keys.sum { |key| key * tally[key] }
+    tally.keys.sum { |number| number * tally[number] }
   end
 
   def big_straight
@@ -27,7 +27,7 @@ class Yacht
   end
 
   def four_of_a_kind
-    tally.keys.find(proc {0}) { |key| tally[key] >= 4 } * 4
+    tally.keys.find(proc {0}) { |number| tally[number] >= 4 } * 4
   end
 
   def full_house
