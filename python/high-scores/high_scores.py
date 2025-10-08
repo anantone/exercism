@@ -9,7 +9,6 @@ class HighScores:
         return max(self.scores)
 
     def personal_top_three(self):
-        scores_to_sort = self.scores[:]
-        scores_to_sort.sort(reverse=True)
-        return scores_to_sort[:3]
+        scores_to_sort = self.scores.copy()
+        return sorted(scores_to_sort, reverse=True)[:3]
         
