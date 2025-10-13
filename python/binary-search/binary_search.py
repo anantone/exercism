@@ -1,5 +1,7 @@
 def find(search_list, value):
-    if search_list == [] or value not in search_list:
+    if search_list == []:
+        raise ValueError("value not in array")
+    if value > max(search_list):
         raise ValueError("value not in array")
     lower = 0
     upper = len(search_list)
@@ -11,4 +13,4 @@ def find(search_list, value):
             upper = mid - 1
         else:
             lower = mid + 1
-
+    raise ValueError("value not in array")
