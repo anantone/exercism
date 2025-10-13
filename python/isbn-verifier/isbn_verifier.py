@@ -1,7 +1,5 @@
-import re
-
 def is_valid(isbn):
-    isbn = re.sub('-', '', isbn)
+    isbn = isbn.replace('-', '')
     if len(isbn) != 10: return False
     if not isbn[:9].isdecimal(): return False
     sum = 0
