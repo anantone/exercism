@@ -9,7 +9,7 @@ def is_valid(isbn):
     for index, digit in enumerate(list(isbn)):
         if digit.isdecimal():
             sum += int(digit) * (10 - index)
-        elif digit == 'X':
+        elif index == 9 and digit == 'X':
             sum += 10
         else:
             return False
