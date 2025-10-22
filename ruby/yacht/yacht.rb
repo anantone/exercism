@@ -6,7 +6,7 @@ class Yacht
   attr_accessor :tally
 
   def initialize(roll, category)
-    self.tally = roll.tally(Hash.new(0))
+    self.tally = roll.tally
     self.score = send(category.tr(' ', '_'))
   end
 
@@ -35,29 +35,31 @@ class Yacht
   end
 
   def sixes
-    tally[6] * 6
+    tally.fetch(6, 0) * 6
   end
 
   def fives
-    tally[5] * 5
+    tally.fetch(5, 0) * 5
   end
 
   def fours
-    tally[4] * 4
+    tally.fetch(4, 0) * 4
   end
 
   def threes
-    tally[3] * 3
+    tally.fetch(3, 0) * 3
   end
 
   def twos
-    tally[2] * 2
+    tally.fetch(2, 0) * 2
   end
 
   def ones
-    tally[1] * 1
+    tally.fetch(1, 0) * 1
   end
 
-  public attr_reader :score
+  public 
+    
+  attr_reader :score
 
 end
