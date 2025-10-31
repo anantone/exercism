@@ -8,7 +8,7 @@ module Brackets
   }.freeze
 
   def paired?(expression)
-    queue = []
+    queue = Array.new
     expression.each_char do |char|
       if BRACKET_PAIRS.value?(char)
         queue.push(char)
