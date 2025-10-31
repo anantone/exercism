@@ -1,25 +1,22 @@
 module Brackets
   extend self
 
+  BRACKET_PAIRS = {
+        ')' => '(',
+        '}' => '{',
+        ']' => '['
+  }.freeze
+
   def paired?(expression)
     queue = []
-    expression.chars.each do |char|
-      case char
-      when '{'
-        queue.push('{')
-      when '}'
-        queue[-1] == '{' ? queue.pop : (return false)
-      when '['
-        queue.push('[')
-      when ']'
-        queue[-1] == '[' ? queue.pop : (return false)
-      when '('
-        queue.push('(')
-      when ')'
-        queue[-1] == '(' ? queue.pop : (return false)
+    expression.each_char do |char|
+      if BRACKET_PAIRS.value?(char)
+        queue.push(char)
+      elsif BRACKET_PAIRS.key?(char)
+        queue.last == BRACKET_PAIRS[char] ? queue.pop : (return false)
       end
     end
-    queue == []      
+    queue.empty?      
   end
 
 end
