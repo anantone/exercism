@@ -8,15 +8,15 @@ module Brackets
       when '{'
         queue.push('{')
       when '}'
-        if queue[-1] == '{' then queue.pop else return false end
+        queue[-1] == '{' ? queue.pop : (return false)
       when '['
         queue.push('[')
       when ']'
-        if queue[-1] == '[' then queue.pop else return false end
+        queue[-1] == '[' ? queue.pop : (return false)
       when '('
         queue.push('(')
       when ')'
-        if queue[-1] == '(' then queue.pop else return false end
+        queue[-1] == '(' ? queue.pop : (return false)
       end
     end
     queue == []      
