@@ -29,8 +29,8 @@ The words you need to find should be taken from the candidate words, using the s
 
 Given the target `"stone"` and the candidate words `"stone"`, `"tones"`, `"banana"`, `"tons"`, `"notes"`, and `"Seton"`, the anagram words you need to find are `"tones"`, `"notes"`, and `"Seton"`.
 
-The Crystal track add optional test to test to test possible letters to be any unicode character, not just ASCII alphabetic ones.
-These are not accesaible from the web editor, but is default when exectued locally.
+The Crystal track add optional test to test possible letters to be any Unicode character, not just ASCII alphabetic ones.
+These are not accessible from the web editor, but is default when exectued locally.
 
 To disable these tests, when calling the test runner, add the following flag: `--tag "~optional"`
 
