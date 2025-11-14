@@ -1,23 +1,23 @@
 class SecretHandshake
   private
   
-  attr_writer :binary_number
+  attr_writer :number
   
   def initialize number
-    self.binary_number = number.to_s(2)
+    self.number = number
   end
 
   public
 
-  attr_reader :binary_number
+  attr_reader :number
 
   def commands
-    commands = []
-    commands << 'wink' if binary_number[-1] =='1'
-    commands << 'double blink' if binary_number[-2] == '1'
-    commands << 'close your eyes' if binary_number[-3] == '1'
-    commands << 'jump' if binary_number[-4] == '1'
-    commands.reverse! if binary_number[-5] == '1'
-    commands
+    steps = []
+    steps << 'wink' if number & 1 == 1
+    steps << 'double blink' if number & 2 == 2
+    steps << 'close your eyes' if number & 4 == 4
+    steps << 'jump' if number & 8 == 8
+    steps.reverse! if number & 16 == 16
+    steps
   end
 end
