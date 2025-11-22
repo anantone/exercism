@@ -12,5 +12,5 @@ pub fn raindrops(n: u32) -> String {
     if n % 3 != 0 && n % 5 != 0 && n % 7 != 0 {
         result.push_str(&n.to_string());
     }
-    return result;
+    result
 }
