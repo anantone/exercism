@@ -5,12 +5,12 @@ pub fn nth(n: u32) -> u32 {
                 return false
             }
         }
-        return true
+        true
     }
     let mut v: Vec<u32> = Vec::new();
     let mut i: u32 = 2;
     while v.len() <= n.try_into().unwrap() {
-        if prime(i) == true {
+        if prime(i) {
             v.push(i);
         }
         i += 1
