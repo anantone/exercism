@@ -1,10 +1,11 @@
 class Robot
 
   BEARINGS = [:east, :north, :west, :south]
+  MOVEMENT = {east: [1, 0], north: [0, 1], west: [-1, 0], south: [0, -1]}
   
   def initialize
     self.bearing = nil
-    self.coordinates = Array.new(2)
+    self.coordinates = [0, 0]
   end
 
   attr_accessor :bearing, :coordinates
@@ -28,16 +29,8 @@ class Robot
   end
 
   def advance
-    case bearing
-    when :east
-      self.coordinates = [coordinates[0] + 1, coordinates[1]]
-    when :north
-      self.coordinates = [coordinates[0], coordinates[1] + 1]
-    when :west
-      self.coordinates = [coordinates[0] - 1, coordinates[1]]
-    when :south
-      self.coordinates = [coordinates[0], coordinates[1] - 1]
-    end
+    coordinates[0] += MOVEMENT[bearing][0]
+    coordinates[1] += MOVEMENT[bearing][1]
   end
 
 end
@@ -64,14 +57,7 @@ class Simulator
 
   def evaluate(robot, letters)
     instructions(letters).each do |command|
-      case command
-      when :advance
-        robot.advance
-      when :turn_right
-        robot.turn_right
-      when :turn_left
-        robot.turn_left
-      end
+      robot.public_send(command)
     end
   end
 
