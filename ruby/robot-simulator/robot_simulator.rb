@@ -29,8 +29,8 @@ class Robot
   end
 
   def advance
-    coordinates[0] += MOVEMENT[bearing][0]
-    coordinates[1] += MOVEMENT[bearing][1]
+    dx, dy = MOVEMENT[bearing]
+    self.coordinates = [coordinates[0] + dx, coordinates[1] + dy]
   end
 
 end
