@@ -26,7 +26,7 @@ module BaseConverter
     return [0] if number.zero?
     result = []
     while number.positive?
-      result.push((number % output_base).zero? ? 0 : number % output_base)
+      result.push(number % output_base)
       number /= output_base
     end
     result.reverse
