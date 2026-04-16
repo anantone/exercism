@@ -90,4 +90,4 @@ If you're not sure where to start, explore the `method_missing` or `define_metho
 
 ### Based on
 
-Exercise by the JumpstartLab team for students at The Turing School of Software and Design. - https://turing.edu
+Exercise by the JumpstartLab team for students at The Turing School of Software and Design. - https://www.turing.edu/
