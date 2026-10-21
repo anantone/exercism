@@ -7,30 +7,18 @@ def _insert_spaces(string, x):
 
 def encode(message):
     """Encode a message using the Atbash cipher."""
-    cipher = []
-    for char in message.lower():
-        if not char.isalnum():
-            continue
-        if char.isdigit():
-            cipher.append(char)
-        else:
-            # Map letter to its reverse counterpart
-            idx = ALPHABET.index(char)
-            cipher.append(TEBAHPLA[idx])
-    
-    return _insert_spaces(''.join(cipher), 5)
+    cipher_chars = (
+        TEBAHPLA[ALPHABET.index(char)] if char.isalpha() else char
+        for char in message.lower()
+        if char.isalnum()
+    )
+    return _insert_spaces(''.join(cipher_chars), 5)
 
 def decode(cipher):
     """Decode an Atbash cipher string."""
-    message = []
-    for char in cipher:
-        if char.isspace():
-            continue
-        if char.isdigit():
-            message.append(char)
-        else:
-            # Map letter back to original
-            idx = TEBAHPLA.index(char)
-            message.append(ALPHABET[idx])
-    
-    return ''.join(message)
+    message_chars = (
+        ALPHABET[TEBAHPLA.index(char)] if char.isalpha() else char
+        for char in cipher.lower()
+        if char.isalnum()
+    )
+    return ''.join(message_chars)
