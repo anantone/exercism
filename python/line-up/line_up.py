@@ -1,11 +1,11 @@
 def line_up(name, number):
-    ord = ''
+    suffix = ''
     if number % 10 == 1 and number % 100 != 11:
-        ord = 'st'
+        suffix = 'st'
     elif number % 10 == 2 and number % 100 != 12:
-        ord = 'nd'
+        suffix = 'nd'
     elif number % 10 == 3 and number % 100 != 13:
-        ord = 'rd'
+        suffix = 'rd'
     else:
-        ord = 'th'
-    return f"{name}, you are the {number}{ord} customer we serve today. Thank you!"
+        suffix = 'th'
+    return f"{name}, you are the {number}{suffix} customer we serve today. Thank you!"
