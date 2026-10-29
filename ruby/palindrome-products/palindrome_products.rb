@@ -1,76 +1,64 @@
 class Palindromes
-
-  private
-
-  attr_writer :range
+  class Result
+    attr_reader :value, :factors
+    def initialize(entries)
+      @value   = entries.dig(0, 0)
+      @factors = entries.map { |_, pair| pair }
+    end
+  end
 
   def initialize(min_factor: 1, max_factor: 9)
-    raise ArgumentError.new("min must be <= max") if min_factor > max_factor
-    self.range = (min_factor..max_factor).to_a
+    raise ArgumentError, "min must be <= max" if min_factor > max_factor
+    @min = min_factor
+    @max = max_factor
   end
-
-  public
-
-  attr_reader :range
-  attr_accessor :palindromes
 
   def generate
-    self.palindromes = range.repeated_combination(2).with_object([]) do |combi, products|
-      if is_palindrome?((combi[0] * combi[1]))
-        products.push([combi[0] * combi[1], [combi[0], combi[1]]])
-      end
-    end
-  end
-
-  def is_palindrome?(x)
-    return false if x < 0 || (x % 10 == 0 && x != 0)
-
-    reverted_number = 0
-    while x > reverted_number
-      reverted_number = reverted_number * 10 + x % 10
-      x /= 10
-    end
-
-    x == reverted_number || x == reverted_number / 10
+    @smallest_entries = find_extreme(ascending: true)
+    @largest_entries  = find_extreme(ascending: false)
   end
 
   def smallest
-    return [] if palindromes.empty?
-    palindromes.group_by { |a| a[0] }[palindromes.min[0]]
+    generate unless defined?(@smallest_entries)
+    Result.new(@smallest_entries)
   end
 
   def largest
-    return [] if palindromes.empty?
-    palindromes.group_by { |a| a[0] }[palindromes.max[0]]
+    generate unless defined?(@largest_entries)
+    Result.new(@largest_entries)
   end
 
-end
+  private
 
-class Array
+  def find_extreme(ascending:)
+    best = nil
+    entries = []
+    outer = ascending ? (@min..@max).to_a : (@min..@max).to_a.reverse
 
-  def value
-    return nil if self.empty?
-    self[0][0]
-  end
+    outer.each do |a|
+      row_limit = a * a
+      break if best && (ascending ? row_limit > best : row_limit < best)
 
-  def factors
-    return [] if self.empty?
-    if self.flatten.length == 3
-      [self[0][1]]
-    else
-      factors = self.each_with_object([]) do |pair, list|
-        list.push(pair[1])
+      inner = ascending ? (a..@max) : (a.downto(@min))
+      inner.each do |b|
+        product = a * b
+        break if best && (ascending ? product > best : product < best)
+
+        next unless palindrome?(product)
+
+        if best.nil? || (ascending ? product < best : product > best)
+          best = product
+          entries = [[product, [a, b].sort]]
+        elsif product == best
+          entries << [product, [a, b].sort]
+        end
       end
-      factors.each { |pair| pair.sort! }.uniq
     end
+
+    entries.sort_by! { |_, (x, y)| [x, y] }
   end
 
-end
-
-if __FILE__ == $PROGRAM_NAME
-
-  a = Palindromes.new(max_factor: 12)
-  a.generate
-  puts a.largest.factors
-
+  def palindrome?(x)
+    x.to_s == x.to_s.reverse
+  end
 end
