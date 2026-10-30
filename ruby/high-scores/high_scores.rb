@@ -1,26 +1,28 @@
 class HighScores
 
-  def initialize(scores)
-    @scores = scores
-  end
+  attr_reader :scores
 
-  def scores
-    @scores
+  def initialize(scores)
+    @scores = scores.dup
   end
 
   def latest
-    @scores[-1]
+    scores.last
   end
 
   def personal_best
-    @scores.max
+    scores.max
   end
 
   def personal_top_three
-    @scores.max(3).sort!.reverse
+    return nil if scores.empty?
+    
+    scores.max(3)
   end
 
   def latest_is_personal_best?
+    return false if scores.empty?
+    
     latest == personal_best
   end
 end
